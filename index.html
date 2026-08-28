@@ -320,7 +320,41 @@
 
 <!-- CARREGA O MODELO -->
 
-<script src="./modelo_arvore.js"></script>
+<script>
+
+function preverDesempenho(ano, frequencia, usoIA) {
+
+    const entrada = [ano, frequencia, usoIA];
+
+    const entradaPadronizada = entrada.map(
+        (valor, i) =>
+            (valor - scalerMean[i]) / scalerScale[i]
+    );
+
+    let no = 0;
+
+    while (treeLeft[no] !== -1) {
+
+        const feature = treeFeature[no];
+        const threshold = treeThreshold[no];
+
+        if (entradaPadronizada[feature] <= threshold) {
+
+            no = treeLeft[no];
+
+        } else {
+
+            no = treeRight[no];
+
+        }
+    }
+
+    const valores = treeValue[no][0];
+
+    return valores[1] > valores[0] ? 1 : 0;
+}
+
+</script>
     
 <script>
     console.log("Modelo carregado:", typeof preverDesempenho);
