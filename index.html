@@ -2,11 +2,8 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Desempenho Escolar</title>
 
@@ -39,9 +36,7 @@
 
             border-radius: 20px;
 
-            box-shadow:
-                0 12px 35px
-                rgba(0,0,0,0.12);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
         }
 
         .cabecalho {
@@ -55,61 +50,45 @@
 
         h1 {
             margin: 8px 0;
-
             color: #173b67;
-
             font-size: 30px;
         }
 
         .subtitulo {
             color: #64748b;
-
             line-height: 1.5;
-
             font-size: 15px;
         }
 
         .linha {
             border: none;
-
-            border-top:
-                1px solid #e2e8f0;
-
+            border-top: 1px solid #e2e8f0;
             margin: 25px 0;
         }
 
         label {
             display: block;
-
             margin-top: 18px;
-
             margin-bottom: 7px;
-
             font-weight: bold;
-
             color: #1e293b;
         }
 
         input,
         select {
             width: 100%;
-
             padding: 13px;
 
-            border:
-                1px solid #cbd5e1;
-
+            border: 1px solid #cbd5e1;
             border-radius: 9px;
 
             font-size: 16px;
-
             background: white;
         }
 
         input:focus,
         select:focus {
             outline: none;
-
             border-color: #2563eb;
         }
 
@@ -117,19 +96,15 @@
             width: 100%;
 
             margin-top: 28px;
-
             padding: 15px;
 
             border: none;
-
             border-radius: 9px;
 
             background: #2563eb;
-
             color: white;
 
             font-size: 17px;
-
             font-weight: bold;
 
             cursor: pointer;
@@ -143,52 +118,38 @@
             display: none;
 
             margin-top: 28px;
-
             padding: 22px;
 
             border-radius: 14px;
-
             line-height: 1.5;
         }
 
         .adequado {
             background: #dcfce7;
-
-            border:
-                1px solid #86efac;
-
+            border: 1px solid #86efac;
             color: #166534;
         }
 
         .baixo {
             background: #fee2e2;
-
-            border:
-                1px solid #fca5a5;
-
+            border: 1px solid #fca5a5;
             color: #991b1b;
         }
 
         .erro {
             background: #fef3c7;
-
-            border:
-                1px solid #fcd34d;
-
+            border: 1px solid #fcd34d;
             color: #92400e;
         }
 
         .resultado-titulo {
             font-size: 22px;
-
             font-weight: bold;
-
             margin-bottom: 12px;
         }
 
         .resultado-analise {
-            background:
-                rgba(255,255,255,0.65);
+            background: rgba(255,255,255,0.65);
 
             padding: 15px;
 
@@ -232,8 +193,7 @@
         }
 
         .dados {
-            background:
-                rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.75);
 
             color: #334155;
 
@@ -252,7 +212,6 @@
 
         .explicacao {
             margin-top: 18px;
-
             font-size: 14px;
         }
 
@@ -334,9 +293,7 @@
     <!-- NOME -->
 
     <label for="nome">
-
         👤 Nome do aluno
-
     </label>
 
     <input
@@ -349,28 +306,18 @@
     <!-- ANO -->
 
     <label for="ano">
-
         📅 Ano letivo
-
     </label>
 
     <select id="ano">
 
-        <option value="2022">
-            2022
-        </option>
+        <option value="2022">2022</option>
 
-        <option value="2023">
-            2023
-        </option>
+        <option value="2023">2023</option>
 
-        <option value="2024">
-            2024
-        </option>
+        <option value="2024">2024</option>
 
-        <option value="2025">
-            2025
-        </option>
+        <option value="2025">2025</option>
 
         <option value="2026" selected>
             2026
@@ -382,9 +329,7 @@
     <!-- FREQUÊNCIA -->
 
     <label for="frequencia">
-
         📈 Frequência (%)
-
     </label>
 
     <input
@@ -401,8 +346,7 @@
 
     <label for="usoIA">
 
-        🤖 O aluno utiliza
-        Inteligência Artificial?
+        🤖 O aluno utiliza Inteligência Artificial?
 
     </label>
 
@@ -441,8 +385,8 @@
 
         <br><br>
 
-        Árvore de Decisão treinada
-        no projeto de Aprendizado de Máquina.
+        Árvore de Decisão treinada no projeto
+        de Aprendizado de Máquina.
 
     </div>
 
@@ -462,8 +406,7 @@
 
     <div class="rodape">
 
-        Sistema de Análise de
-        Desempenho Escolar
+        Sistema de Análise de Desempenho Escolar
 
     </div>
 
@@ -482,9 +425,7 @@
 const scalerMean = [
 
     2025.990875,
-
     75.164625,
-
     0.298125
 
 ];
@@ -493,9 +434,7 @@ const scalerMean = [
 const scalerScale = [
 
     1.416259769383781,
-
     11.583092143696993,
-
     0.45743467771366
 
 ];
@@ -525,66 +464,36 @@ const treeFeature = [
 const treeThreshold = [
 
     0.44131985306739807,
-
     0.3742847740650177,
-
     -0.8343735039234161,
-
     -1.8703662753105164,
-
-    -2.0,
-
-    -2.0,
-
+    -2,
+    -2,
     -0.05737889185547829,
-
-    -2.0,
-
-    -2.0,
-
+    -2,
+    -2,
     1.3239448070526123,
-
     0.8922811448574066,
-
-    -2.0,
-
-    -2.0,
-
+    -2,
+    -2,
     0.35948559804819524,
-
-    -2.0,
-
-    -2.0,
-
+    -2,
+    -2,
     -0.4890425503253937,
-
     -1.438702642917633,
-
     -1.7840335369110107,
-
-    -2.0,
-
-    -2.0,
-
+    -2,
+    -2,
     -0.8343735039234161,
-
-    -2.0,
-
-    -2.0,
-
+    -2,
+    -2,
     0.5469502508640289,
-
     1.065570741891861,
-
-    -2.0,
-
-    -2.0,
-
+    -2,
+    -2,
     1.5829430222511292,
-
-    -2.0,
-
-    -2.0
+    -2,
+    -2
 
 ];
 
@@ -633,67 +542,67 @@ const treeRight = [
 
 const treeValue = [
 
-    [[0.518375, 0.481625]],
+    [[0.518375,0.481625]],
 
-    [[0.3941228851291184, 0.6058771148708816]],
+    [[0.3941228851291184,0.6058771148708816]],
 
-    [[0.3069664168748265, 0.6930335831251735]],
+    [[0.3069664168748265,0.693033583125173]],
 
-    [[0.21403812824956672, 0.7859618717504333]],
+    [[0.21403812824956672,0.7859618717504333]],
 
-    [[0.145, 0.855]],
+    [[0.145,0.855]],
 
-    [[0.22851153039832284, 0.7714884696016772]],
+    [[0.22851153039832284,0.7714884696016772]],
 
-    [[0.35075541037158026, 0.6492445896284198]],
+    [[0.35075541037158026,0.6492445896284198]],
 
-    [[0.3235677083333333, 0.6764322916666666]],
+    [[0.3235677083333333,0.6764322916666666]],
 
-    [[0.3964950711938664, 0.6035049288061336]],
+    [[0.3964950711938664,0.6035049288061336]],
 
-    [[0.5501988071570576, 0.44980119284294234]],
+    [[0.5501988071570576,0.44980119284294234]],
 
-    [[0.5017253278122843, 0.49827467218771565]],
+    [[0.5017253278122843,0.49827467218771565]],
 
-    [[0.4822771213748657, 0.5177228786251342]],
+    [[0.4822771213748657,0.5177228786251342]],
 
-    [[0.5366795366795367, 0.46332046332046334]],
+    [[0.5366795366795367,0.46332046332046334]],
 
-    [[0.6749555950266429, 0.325044404973357]],
+    [[0.6749555950266429,0.325044404973357]],
 
-    [[0.6528117359413202, 0.3471882640586797]],
+    [[0.6528117359413202,0.3471882640586797]],
 
-    [[0.7337662337662337, 0.2662337662337662]],
+    [[0.7337662337662337,0.2662337662337662]],
 
-    [[0.8109014675052411, 0.18909853249475891]],
+    [[0.8109014675052411,0.18909853249475891]],
 
-    [[0.6956521739130435, 0.30434782608695654]],
+    [[0.6956521739130435,0.30434782608695654]],
 
-    [[0.6195121951219512, 0.3804878048780488]],
+    [[0.6195121951219512,0.3804878048780488]],
 
-    [[0.6732673267326733, 0.32673267326732675]],
+    [[0.6732673267326735,0.32673267326732675]],
 
-    [[0.5673076923076923, 0.4326923076923077]],
+    [[0.5673076923076923,0.4326923076923077]],
 
-    [[0.723826714801444, 0.27617328519855594]],
+    [[0.723826714801444,0.27617328519855594]],
 
-    [[0.749185667752443, 0.250814332247557]],
+    [[0.749185667752443,0.250814332247557]],
 
-    [[0.6923076923076923, 0.3076923076923077]],
+    [[0.6923076923076923,0.3076923076923077]],
 
-    [[0.8646986469864698, 0.13530135301353013]],
+    [[0.8646986469864698,0.13530135301353013]],
 
-    [[0.8133187772925764, 0.18668122270742357]],
+    [[0.8133187772925764,0.18668122270742357]],
 
-    [[0.8036912751677853, 0.19630872483221476]],
+    [[0.8036912751677853,0.19630872483221476]],
 
-    [[0.83125, 0.16875]],
+    [[0.83125,0.16875]],
 
-    [[0.9309859154929577, 0.06901408450704226]],
+    [[0.9309859154929577,0.06901408450704226]],
 
-    [[0.9173989455184535, 0.08260105448154657]],
+    [[0.9173989455184535,0.08260105448154657]],
 
-    [[0.9858156028368794, 0.014184397163120567]]
+    [[0.9858156028368794,0.014184397163120567]]
 
 ];
 
@@ -713,9 +622,7 @@ function preverDesempenho(
     const entrada = [
 
         ano,
-
         frequencia,
-
         usoIA
 
     ];
@@ -751,15 +658,11 @@ function preverDesempenho(
             <= threshold
         ) {
 
-            no =
-                treeLeft[no];
+            no = treeLeft[no];
 
-        }
+        } else {
 
-        else {
-
-            no =
-                treeRight[no];
+            no = treeRight[no];
 
         }
 
@@ -800,7 +703,6 @@ function analisarAluno() {
 
 
     const nome =
-
         document
         .getElementById("nome")
         .value
@@ -808,56 +710,44 @@ function analisarAluno() {
 
 
     const ano =
-
         Number(
-
             document
             .getElementById("ano")
             .value
-
         );
 
 
     const frequencia =
-
         Number(
-
             document
             .getElementById("frequencia")
             .value
-
         );
 
 
     const usoIA =
-
         Number(
-
             document
             .getElementById("usoIA")
             .value
-
         );
 
 
     const resultado =
-
         document
         .getElementById("resultado");
 
 
-    /* =====================================
+    /* ================================================
        VALIDAÇÃO DO NOME
-       ===================================== */
+       ================================================ */
 
 
     if (nome === "") {
 
-        resultado.style.display =
-            "block";
+        resultado.style.display = "block";
 
-        resultado.className =
-            "erro";
+        resultado.className = "erro";
 
         resultado.innerHTML = `
 
@@ -867,8 +757,8 @@ function analisarAluno() {
 
             </div>
 
-            Digite o nome antes de
-            realizar a análise.
+            Digite o nome antes de realizar
+            a análise.
 
         `;
 
@@ -877,26 +767,20 @@ function analisarAluno() {
     }
 
 
-    /* =====================================
+    /* ================================================
        VALIDAÇÃO DA FREQUÊNCIA
-       ===================================== */
+       ================================================ */
 
 
     if (
-
         isNaN(frequencia) ||
-
         frequencia < 0 ||
-
         frequencia > 100
-
     ) {
 
-        resultado.style.display =
-            "block";
+        resultado.style.display = "block";
 
-        resultado.className =
-            "erro";
+        resultado.className = "erro";
 
         resultado.innerHTML = `
 
@@ -906,8 +790,7 @@ function analisarAluno() {
 
             </div>
 
-            Informe um valor entre
-            0% e 100%.
+            Informe um valor entre 0% e 100%.
 
         `;
 
@@ -916,21 +799,101 @@ function analisarAluno() {
     }
 
 
-    /* =====================================
+    /* ================================================
+       REGRA DE SEGURANÇA PARA 0%
+       ================================================ */
+
+    if (frequencia === 0) {
+
+        resultado.style.display = "block";
+
+        resultado.className = "baixo";
+
+        resultado.innerHTML = `
+
+            <div class="resultado-titulo">
+
+                ⚠️ Possível baixo desempenho
+
+            </div>
+
+
+            <div class="resultado-analise">
+
+                📌 <strong>
+                    Resultado da análise
+                </strong>
+
+                <p>
+
+                    O aluno apresentou
+                    <strong>0% de frequência</strong>.
+                    Esse indicador requer atenção e
+                    acompanhamento pedagógico.
+
+                </p>
+
+            </div>
+
+
+            <div class="dados">
+
+                <strong>
+                    📊 Dados analisados
+                </strong>
+
+
+                <div>
+                    👤 Aluno: ${nome}
+                </div>
+
+
+                <div>
+                    📅 Ano letivo: ${ano}
+                </div>
+
+
+                <div>
+                    📈 Frequência: ${frequencia}%
+                </div>
+
+
+                <div>
+                    🤖 Uso de IA:
+                    ${usoIA === 1 ? "Sim" : "Não"}
+                </div>
+
+            </div>
+
+
+            <div class="explicacao">
+
+                💡 <strong>Orientação:</strong>
+
+                frequência igual a 0% indica ausência
+                total no período informado. Recomenda-se
+                verificar a situação do aluno e realizar
+                acompanhamento pedagógico.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* ================================================
        EXECUTA O MODELO
-       ===================================== */
+       ================================================ */
 
 
     const previsao =
-
         preverDesempenho(
-
             ano,
-
             frequencia,
-
             usoIA
-
         );
 
 
@@ -942,20 +905,18 @@ function analisarAluno() {
         previsao.probabilidade.toFixed(1);
 
 
-    resultado.style.display =
-        "block";
+    resultado.style.display = "block";
 
 
-    /* =====================================
+    /* ================================================
        POSSÍVEL BAIXO DESEMPENHO
-       ===================================== */
+       ================================================ */
 
 
     if (classe === 1) {
 
 
-        resultado.className =
-            "baixo";
+        resultado.className = "baixo";
 
 
         resultado.innerHTML = `
@@ -1011,36 +972,23 @@ function analisarAluno() {
 
 
                 <div>
-
-                    👤 Aluno:
-                    ${nome}
-
+                    👤 Aluno: ${nome}
                 </div>
 
 
                 <div>
-
-                    📅 Ano letivo:
-                    ${ano}
-
+                    📅 Ano letivo: ${ano}
                 </div>
 
 
                 <div>
-
-                    📈 Frequência:
-                    ${frequencia}%
-
+                    📈 Frequência: ${frequencia}%
                 </div>
 
 
                 <div>
-
                     🤖 Uso de IA:
-                    ${usoIA === 1
-                        ? "Sim"
-                        : "Não"}
-
+                    ${usoIA === 1 ? "Sim" : "Não"}
                 </div>
 
             </div>
@@ -1058,19 +1006,19 @@ function analisarAluno() {
 
         `;
 
+
     }
 
 
-    /* =====================================
+    /* ================================================
        DESEMPENHO ADEQUADO
-       ===================================== */
+       ================================================ */
 
 
     else {
 
 
-        resultado.className =
-            "adequado";
+        resultado.className = "adequado";
 
 
         resultado.innerHTML = `
@@ -1126,36 +1074,23 @@ function analisarAluno() {
 
 
                 <div>
-
-                    👤 Aluno:
-                    ${nome}
-
+                    👤 Aluno: ${nome}
                 </div>
 
 
                 <div>
-
-                    📅 Ano letivo:
-                    ${ano}
-
+                    📅 Ano letivo: ${ano}
                 </div>
 
 
                 <div>
-
-                    📈 Frequência:
-                    ${frequencia}%
-
+                    📈 Frequência: ${frequencia}%
                 </div>
 
 
                 <div>
-
                     🤖 Uso de IA:
-                    ${usoIA === 1
-                        ? "Sim"
-                        : "Não"}
-
+                    ${usoIA === 1 ? "Sim" : "Não"}
                 </div>
 
             </div>
@@ -1165,10 +1100,9 @@ function analisarAluno() {
 
                 💡 <strong>Interpretação:</strong>
 
-                de acordo com o modelo,
-                os dados informados não foram
-                classificados como possível
-                baixo desempenho.
+                de acordo com o modelo, os dados
+                informados não foram classificados
+                como possível baixo desempenho.
 
             </div>
 
