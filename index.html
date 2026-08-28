@@ -10,42 +10,27 @@
 
     <title>Desempenho Escolar</title>
 
-
     <style>
 
         * {
             box-sizing: border-box;
         }
 
-
         body {
-
             margin: 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             background: #f1f5f9;
-
             min-height: 100vh;
 
             display: flex;
-
             justify-content: center;
-
             align-items: center;
 
             padding: 20px;
-
         }
 
-
         .container {
-
             width: 100%;
-
             max-width: 560px;
 
             background: white;
@@ -57,62 +42,43 @@
             box-shadow:
                 0 12px 35px
                 rgba(0,0,0,0.12);
-
         }
-
 
         .cabecalho {
-
             text-align: center;
-
             margin-bottom: 25px;
-
         }
-
 
         .icone {
-
             font-size: 45px;
-
         }
 
-
         h1 {
-
             margin: 8px 0;
 
             color: #173b67;
 
             font-size: 30px;
-
         }
 
-
         .subtitulo {
-
             color: #64748b;
 
             line-height: 1.5;
 
             font-size: 15px;
-
         }
 
-
         .linha {
-
             border: none;
 
             border-top:
                 1px solid #e2e8f0;
 
             margin: 25px 0;
-
         }
 
-
         label {
-
             display: block;
 
             margin-top: 18px;
@@ -122,13 +88,10 @@
             font-weight: bold;
 
             color: #1e293b;
-
         }
-
 
         input,
         select {
-
             width: 100%;
 
             padding: 13px;
@@ -141,22 +104,16 @@
             font-size: 16px;
 
             background: white;
-
         }
-
 
         input:focus,
         select:focus {
-
             outline: none;
 
             border-color: #2563eb;
-
         }
 
-
         button {
-
             width: 100%;
 
             margin-top: 28px;
@@ -176,19 +133,13 @@
             font-weight: bold;
 
             cursor: pointer;
-
         }
-
 
         button:hover {
-
             background: #1d4ed8;
-
         }
 
-
         #resultado {
-
             display: none;
 
             margin-top: 28px;
@@ -198,59 +149,89 @@
             border-radius: 14px;
 
             line-height: 1.5;
-
         }
 
-
         .adequado {
-
             background: #dcfce7;
 
             border:
                 1px solid #86efac;
 
             color: #166534;
-
         }
 
-
         .baixo {
-
             background: #fee2e2;
 
             border:
                 1px solid #fca5a5;
 
             color: #991b1b;
-
         }
 
-
         .erro {
-
             background: #fef3c7;
 
             border:
                 1px solid #fcd34d;
 
             color: #92400e;
-
         }
 
-
         .resultado-titulo {
-
             font-size: 22px;
 
             font-weight: bold;
 
             margin-bottom: 12px;
-
         }
 
+        .resultado-analise {
+            background:
+                rgba(255,255,255,0.65);
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            color: #334155;
+        }
+
+        .resultado-analise p {
+            margin-bottom: 0;
+        }
+
+        .probabilidade {
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            background: white;
+
+            color: #1e293b;
+
+            font-size: 16px;
+
+            text-align: center;
+        }
+
+        .probabilidade-numero {
+            display: block;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            margin-top: 5px;
+
+            color: #2563eb;
+        }
 
         .dados {
-
             background:
                 rgba(255,255,255,0.75);
 
@@ -263,28 +244,19 @@
             margin-top: 18px;
 
             font-size: 14px;
-
         }
-
 
         .dados div {
-
             margin: 7px 0;
-
         }
 
-
         .explicacao {
-
             margin-top: 18px;
 
             font-size: 14px;
-
         }
 
-
         .modelo {
-
             margin-top: 20px;
 
             padding: 15px;
@@ -298,12 +270,9 @@
             font-size: 14px;
 
             text-align: center;
-
         }
 
-
         .aviso {
-
             margin-top: 20px;
 
             color: #64748b;
@@ -313,12 +282,9 @@
             text-align: center;
 
             line-height: 1.5;
-
         }
 
-
         .rodape {
-
             margin-top: 25px;
 
             text-align: center;
@@ -326,7 +292,6 @@
             color: #94a3b8;
 
             font-size: 12px;
-
         }
 
     </style>
@@ -340,23 +305,23 @@
 <div class="container">
 
 
+    <!-- CABEÇALHO -->
+
     <div class="cabecalho">
 
         <div class="icone">
             📚
         </div>
 
-
         <h1>
             Desempenho Escolar
         </h1>
 
-
         <p class="subtitulo">
 
-            Sistema preditivo para
-            identificação precoce de
-            possível baixo desempenho escolar.
+            Sistema preditivo para identificação
+            precoce de possível baixo desempenho
+            escolar.
 
         </p>
 
@@ -374,15 +339,10 @@
 
     </label>
 
-
     <input
-
         type="text"
-
         id="nome"
-
         placeholder="Digite o nome do aluno"
-
     >
 
 
@@ -393,7 +353,6 @@
         📅 Ano letivo
 
     </label>
-
 
     <select id="ano">
 
@@ -428,25 +387,17 @@
 
     </label>
 
-
     <input
-
         type="number"
-
         id="frequencia"
-
         min="0"
-
         max="100"
-
         step="0.1"
-
         value="75"
-
     >
 
 
-    <!-- IA -->
+    <!-- USO DE IA -->
 
     <label for="usoIA">
 
@@ -454,7 +405,6 @@
         Inteligência Artificial?
 
     </label>
-
 
     <select id="usoIA">
 
@@ -497,15 +447,18 @@
     </div>
 
 
+    <!-- AVISO -->
+
     <p class="aviso">
 
-        ⚠️ Esta ferramenta apresenta
-        uma previsão baseada nos dados
-        informados e não substitui a
-        avaliação pedagógica do professor.
+        ⚠️ Esta ferramenta apresenta uma previsão
+        baseada nos dados informados e não substitui
+        a avaliação pedagógica do professor.
 
     </p>
 
+
+    <!-- RODAPÉ -->
 
     <div class="rodape">
 
@@ -552,7 +505,9 @@ const treeFeature = [
 
     2, 1, 1, 1, -2, -2,
 
-    1, -2, -2, 1, 1, -2, -2,
+    1, -2, -2,
+
+    1, 1, -2, -2,
 
     0, -2, -2,
 
@@ -821,7 +776,17 @@ function preverDesempenho(
         : 0;
 
 
-    return classe;
+    const probabilidade =
+        valores[classe] * 100;
+
+
+    return {
+
+        classe: classe,
+
+        probabilidade: probabilidade
+
+    };
 
 }
 
@@ -888,14 +853,11 @@ function analisarAluno() {
 
     if (nome === "") {
 
-
         resultado.style.display =
             "block";
 
-
         resultado.className =
             "erro";
-
 
         resultado.innerHTML = `
 
@@ -909,7 +871,6 @@ function analisarAluno() {
             realizar a análise.
 
         `;
-
 
         return;
 
@@ -931,14 +892,11 @@ function analisarAluno() {
 
     ) {
 
-
         resultado.style.display =
             "block";
 
-
         resultado.className =
             "erro";
-
 
         resultado.innerHTML = `
 
@@ -953,7 +911,6 @@ function analisarAluno() {
 
         `;
 
-
         return;
 
     }
@@ -964,7 +921,7 @@ function analisarAluno() {
        ===================================== */
 
 
-    const classe =
+    const previsao =
 
         preverDesempenho(
 
@@ -975,6 +932,14 @@ function analisarAluno() {
             usoIA
 
         );
+
+
+    const classe =
+        previsao.classe;
+
+
+    const probabilidade =
+        previsao.probabilidade.toFixed(1);
 
 
     resultado.style.display =
@@ -1002,14 +967,40 @@ function analisarAluno() {
             </div>
 
 
-            <p>
+            <div class="resultado-analise">
 
-                O modelo identificou
-                características associadas
-                à classe de possível
-                baixo desempenho.
+                📌 <strong>
+                    Resultado da análise
+                </strong>
 
-            </p>
+                <p>
+
+                    O aluno apresentou frequência
+                    de <strong>${frequencia}%</strong>,
+                    e o modelo classificou os dados
+                    informados como
+                    <strong>
+                        possível baixo desempenho
+                    </strong>.
+
+                </p>
+
+            </div>
+
+
+            <div class="probabilidade">
+
+                📊 <strong>
+                    Probabilidade estimada
+                </strong>
+
+                <span class="probabilidade-numero">
+
+                    ${probabilidade}%
+
+                </span>
+
+            </div>
 
 
             <div class="dados">
@@ -1091,14 +1082,40 @@ function analisarAluno() {
             </div>
 
 
-            <p>
+            <div class="resultado-analise">
 
-                Não foram identificadas,
-                nesta análise inicial,
-                características associadas
-                ao baixo desempenho.
+                📌 <strong>
+                    Resultado da análise
+                </strong>
 
-            </p>
+                <p>
+
+                    O aluno apresentou frequência
+                    de <strong>${frequencia}%</strong>,
+                    e o modelo classificou os dados
+                    informados como
+                    <strong>
+                        desempenho adequado
+                    </strong>.
+
+                </p>
+
+            </div>
+
+
+            <div class="probabilidade">
+
+                📊 <strong>
+                    Probabilidade estimada
+                </strong>
+
+                <span class="probabilidade-numero">
+
+                    ${probabilidade}%
+
+                </span>
+
+            </div>
 
 
             <div class="dados">
