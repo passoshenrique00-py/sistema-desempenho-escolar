@@ -18,24 +18,18 @@
             font-family: Arial, Helvetica, sans-serif;
             background: #f1f5f9;
             min-height: 100vh;
-
             display: flex;
             justify-content: center;
             align-items: center;
-
             padding: 20px;
         }
 
         .container {
             width: 100%;
             max-width: 560px;
-
             background: white;
-
             padding: 35px;
-
             border-radius: 20px;
-
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
         }
 
@@ -51,82 +45,57 @@
 
         h1 {
             margin: 0;
-
             color: #173b67;
-
             font-size: 30px;
         }
 
         .subtitulo {
             color: #64748b;
-
             line-height: 1.5;
-
             margin-top: 10px;
-
             font-size: 15px;
         }
 
         .linha {
             border: none;
-
             border-top: 1px solid #e2e8f0;
-
             margin: 25px 0;
         }
 
         label {
             display: block;
-
             margin-top: 18px;
             margin-bottom: 7px;
-
             font-weight: bold;
-
             color: #1e293b;
         }
 
         select,
         input {
             width: 100%;
-
             padding: 13px;
-
             border: 1px solid #cbd5e1;
-
             border-radius: 9px;
-
             font-size: 16px;
-
             background: white;
         }
 
         select:focus,
         input:focus {
             outline: none;
-
             border-color: #2563eb;
         }
 
         button {
             width: 100%;
-
             margin-top: 28px;
-
             padding: 15px;
-
             border: none;
-
             border-radius: 9px;
-
             background: #2563eb;
-
             color: white;
-
             font-size: 17px;
-
             font-weight: bold;
-
             cursor: pointer;
         }
 
@@ -136,107 +105,76 @@
 
         #resultado {
             display: none;
-
             margin-top: 28px;
-
             padding: 22px;
-
             border-radius: 14px;
-
             line-height: 1.5;
         }
 
         .adequado {
             background: #dcfce7;
-
             border: 1px solid #86efac;
-
             color: #166534;
         }
 
         .baixo {
             background: #fee2e2;
-
             border: 1px solid #fca5a5;
-
             color: #991b1b;
         }
 
         .erro {
             background: #fef3c7;
-
             border: 1px solid #fcd34d;
-
             color: #92400e;
         }
 
         .resultado-titulo {
-            font-size: 21px;
-
+            font-size: 22px;
             font-weight: bold;
-
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .dados {
-            background: rgba(255,255,255,0.7);
-
+            background: rgba(255,255,255,0.75);
             color: #334155;
-
             padding: 15px;
-
             border-radius: 10px;
-
-            margin-top: 15px;
-
+            margin-top: 18px;
             font-size: 14px;
         }
 
         .dados div {
-            margin: 6px 0;
+            margin: 7px 0;
         }
 
         .explicacao {
-            margin-top: 15px;
-
+            margin-top: 18px;
             font-size: 14px;
         }
 
         .modelo {
             margin-top: 20px;
-
             padding: 15px;
-
             background: #eff6ff;
-
             border-radius: 10px;
-
             color: #1e40af;
-
             font-size: 14px;
-
             text-align: center;
         }
 
         .aviso {
             margin-top: 20px;
-
             color: #64748b;
-
             font-size: 12px;
-
             text-align: center;
-
             line-height: 1.5;
         }
 
         .rodape {
             margin-top: 25px;
-
             text-align: center;
-
             color: #94a3b8;
-
             font-size: 12px;
         }
 
@@ -268,8 +206,23 @@
     <hr class="linha">
 
 
+    <!-- NOME DO ALUNO -->
+
+    <label for="nome">
+        👤 Nome do aluno
+    </label>
+
+    <input
+        type="text"
+        id="nome"
+        placeholder="Digite o nome do aluno"
+    >
+
+
+    <!-- ANO -->
+
     <label for="ano">
-        Ano letivo
+        📅 Ano letivo
     </label>
 
     <select id="ano">
@@ -287,8 +240,10 @@
     </select>
 
 
+    <!-- FREQUÊNCIA -->
+
     <label for="frequencia">
-        Frequência (%)
+        📈 Frequência (%)
     </label>
 
     <input
@@ -301,8 +256,10 @@
     >
 
 
+    <!-- USO DE IA -->
+
     <label for="usoIA">
-        O aluno utiliza Inteligência Artificial?
+        🤖 O aluno utiliza Inteligência Artificial?
     </label>
 
     <select id="usoIA">
@@ -318,29 +275,35 @@
     </select>
 
 
+    <!-- BOTÃO -->
+
     <button onclick="analisarAluno()">
         🔎 ANALISAR ALUNO
     </button>
 
+
+    <!-- RESULTADO -->
 
     <div id="resultado"></div>
 
 
     <div class="modelo">
 
-        🌳 <strong>Modelo utilizado:</strong><br>
+        🌳 <strong>Modelo utilizado</strong>
 
-        Árvore de Decisão treinada no projeto de
-        Aprendizado de Máquina.
+        <br><br>
+
+        Árvore de Decisão treinada no projeto
+        de Aprendizado de Máquina.
 
     </div>
 
 
     <p class="aviso">
 
-        ⚠️ Esta ferramenta apresenta uma previsão baseada
-        nos dados informados e não substitui a avaliação
-        pedagógica do professor.
+        ⚠️ A ferramenta apresenta uma previsão baseada
+        nos dados informados. O resultado não substitui
+        a avaliação pedagógica do professor.
 
     </p>
 
@@ -355,13 +318,19 @@
 </div>
 
 
-<!-- Modelo da Árvore de Decisão -->
+<!-- CARREGA O MODELO -->
+
 <script src="modelo_arvore.js"></script>
 
 
 <script>
 
+
 function analisarAluno() {
+
+
+    const nome =
+        document.getElementById("nome").value.trim();
 
 
     const ano =
@@ -386,7 +355,31 @@ function analisarAluno() {
         document.getElementById("resultado");
 
 
-    // Verificação da frequência
+    // Verifica o nome
+
+    if (nome === "") {
+
+        resultado.style.display = "block";
+
+        resultado.className = "erro";
+
+        resultado.innerHTML = `
+
+            <div class="resultado-titulo">
+
+                ⚠️ Informe o nome do aluno
+
+            </div>
+
+            Digite o nome antes de realizar a análise.
+
+        `;
+
+        return;
+    }
+
+
+    // Verifica a frequência
 
     if (
         isNaN(frequencia) ||
@@ -401,11 +394,12 @@ function analisarAluno() {
         resultado.innerHTML = `
 
             <div class="resultado-titulo">
-                ⚠️ Dados inválidos
+
+                ⚠️ Frequência inválida
+
             </div>
 
-            Informe uma frequência
-            entre 0% e 100%.
+            Informe um valor entre 0% e 100%.
 
         `;
 
@@ -426,7 +420,9 @@ function analisarAluno() {
     resultado.style.display = "block";
 
 
-    // Resultado: Baixo desempenho
+    // =====================================
+    // BAIXO DESEMPENHO
+    // =====================================
 
     if (classe === 1) {
 
@@ -440,18 +436,22 @@ function analisarAluno() {
 
             </div>
 
-            <div>
+            <p>
 
                 O modelo identificou características
                 associadas à classe de possível
                 baixo desempenho.
 
-            </div>
+            </p>
 
 
             <div class="dados">
 
                 <strong>📊 Dados analisados</strong>
+
+                <div>
+                    👤 Aluno: ${nome}
+                </div>
 
                 <div>
                     📅 Ano letivo: ${ano}
@@ -471,10 +471,10 @@ function analisarAluno() {
 
             <div class="explicacao">
 
-                💡 <strong>Interpretação:</strong>
+                💡 <strong>Orientação:</strong>
 
-                o resultado indica a necessidade de
-                atenção e acompanhamento pedagógico.
+                recomenda-se acompanhamento pedagógico
+                e observação do desenvolvimento do aluno.
 
             </div>
 
@@ -483,7 +483,9 @@ function analisarAluno() {
     }
 
 
-    // Resultado: Adequado
+    // =====================================
+    // DESEMPENHO ADEQUADO
+    // =====================================
 
     else {
 
@@ -497,18 +499,22 @@ function analisarAluno() {
 
             </div>
 
-            <div>
+            <p>
 
                 Não foram identificadas, nesta análise
                 inicial, características associadas
                 ao baixo desempenho.
 
-            </div>
+            </p>
 
 
             <div class="dados">
 
                 <strong>📊 Dados analisados</strong>
+
+                <div>
+                    👤 Aluno: ${nome}
+                </div>
 
                 <div>
                     📅 Ano letivo: ${ano}
@@ -541,6 +547,7 @@ function analisarAluno() {
     }
 
 }
+
 
 </script>
 
