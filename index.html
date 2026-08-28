@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,70 +8,125 @@
     <title>Desempenho Escolar</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f1f5f9;
             min-height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
+            padding: 20px;
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 560px;
+
             background: white;
+
             padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+            border-radius: 20px;
+
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
         }
 
-        .titulo {
+        .cabecalho {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .icone {
+            font-size: 45px;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            margin: 0;
+
             color: #173b67;
+
             font-size: 30px;
         }
 
         .subtitulo {
-            text-align: center;
             color: #64748b;
-            margin-bottom: 30px;
+
             line-height: 1.5;
+
+            margin-top: 10px;
+
+            font-size: 15px;
+        }
+
+        .linha {
+            border: none;
+
+            border-top: 1px solid #e2e8f0;
+
+            margin: 25px 0;
         }
 
         label {
             display: block;
+
             margin-top: 18px;
             margin-bottom: 7px;
+
             font-weight: bold;
+
             color: #1e293b;
         }
 
         select,
         input {
             width: 100%;
+
             padding: 13px;
+
             border: 1px solid #cbd5e1;
+
             border-radius: 9px;
+
             font-size: 16px;
+
+            background: white;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+
+            border-color: #2563eb;
         }
 
         button {
             width: 100%;
+
             margin-top: 28px;
+
             padding: 15px;
+
             border: none;
+
             border-radius: 9px;
+
             background: #2563eb;
+
             color: white;
+
             font-size: 17px;
+
             font-weight: bold;
+
             cursor: pointer;
         }
 
@@ -79,63 +135,161 @@
         }
 
         #resultado {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 10px;
             display: none;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
+
+            margin-top: 28px;
+
+            padding: 22px;
+
+            border-radius: 14px;
+
             line-height: 1.5;
         }
 
         .adequado {
             background: #dcfce7;
+
+            border: 1px solid #86efac;
+
             color: #166534;
         }
 
         .baixo {
             background: #fee2e2;
+
+            border: 1px solid #fca5a5;
+
             color: #991b1b;
         }
 
         .erro {
             background: #fef3c7;
+
+            border: 1px solid #fcd34d;
+
             color: #92400e;
         }
 
-        .info {
+        .resultado-titulo {
+            font-size: 21px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .dados {
+            background: rgba(255,255,255,0.7);
+
+            color: #334155;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+        }
+
+        .dados div {
+            margin: 6px 0;
+        }
+
+        .explicacao {
+            margin-top: 15px;
+
+            font-size: 14px;
+        }
+
+        .modelo {
             margin-top: 20px;
-            font-size: 13px;
-            color: #64748b;
+
+            padding: 15px;
+
+            background: #eff6ff;
+
+            border-radius: 10px;
+
+            color: #1e40af;
+
+            font-size: 14px;
+
             text-align: center;
         }
+
+        .aviso {
+            margin-top: 20px;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            text-align: center;
+
+            line-height: 1.5;
+        }
+
+        .rodape {
+            margin-top: 25px;
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <h1 class="titulo">📚 Desempenho Escolar</h1>
 
-    <p class="subtitulo">
-        Sistema preditivo para identificação precoce
-        de possível baixo desempenho escolar.
-    </p>
+    <div class="cabecalho">
 
-    <label for="ano">Ano letivo</label>
+        <div class="icone">📚</div>
+
+        <h1>Desempenho Escolar</h1>
+
+        <p class="subtitulo">
+            Sistema preditivo para identificação precoce
+            de possível baixo desempenho escolar.
+        </p>
+
+    </div>
+
+
+    <hr class="linha">
+
+
+    <label for="ano">
+        Ano letivo
+    </label>
 
     <select id="ano">
+
         <option value="2022">2022</option>
+
         <option value="2023">2023</option>
+
         <option value="2024">2024</option>
+
         <option value="2025">2025</option>
+
         <option value="2026" selected>2026</option>
+
     </select>
 
 
-    <label for="frequencia">Frequência (%)</label>
+    <label for="frequencia">
+        Frequência (%)
+    </label>
 
     <input
         type="number"
@@ -147,11 +301,20 @@
     >
 
 
-    <label for="usoIA">O aluno utiliza Inteligência Artificial?</label>
+    <label for="usoIA">
+        O aluno utiliza Inteligência Artificial?
+    </label>
 
     <select id="usoIA">
-        <option value="0" selected>Não</option>
-        <option value="1">Sim</option>
+
+        <option value="0" selected>
+            Não
+        </option>
+
+        <option value="1">
+            Sim
+        </option>
+
     </select>
 
 
@@ -162,14 +325,37 @@
 
     <div id="resultado"></div>
 
-    <p class="info">
-        Análise baseada no modelo de Árvore de Decisão desenvolvido no projeto.
+
+    <div class="modelo">
+
+        🌳 <strong>Modelo utilizado:</strong><br>
+
+        Árvore de Decisão treinada no projeto de
+        Aprendizado de Máquina.
+
+    </div>
+
+
+    <p class="aviso">
+
+        ⚠️ Esta ferramenta apresenta uma previsão baseada
+        nos dados informados e não substitui a avaliação
+        pedagógica do professor.
+
     </p>
+
+
+    <div class="rodape">
+
+        Sistema de Análise de Desempenho Escolar
+
+    </div>
+
 
 </div>
 
 
-<!-- Carrega o modelo gerado no Google Colab -->
+<!-- Modelo da Árvore de Decisão -->
 <script src="modelo_arvore.js"></script>
 
 
@@ -177,19 +363,31 @@
 
 function analisarAluno() {
 
-    const ano = Number(document.getElementById("ano").value);
+
+    const ano =
+        Number(
+            document.getElementById("ano").value
+        );
+
 
     const frequencia =
-        Number(document.getElementById("frequencia").value);
+        Number(
+            document.getElementById("frequencia").value
+        );
+
 
     const usoIA =
-        Number(document.getElementById("usoIA").value);
+        Number(
+            document.getElementById("usoIA").value
+        );
+
 
     const resultado =
         document.getElementById("resultado");
 
 
     // Verificação da frequência
+
     if (
         isNaN(frequencia) ||
         frequencia < 0 ||
@@ -197,16 +395,26 @@ function analisarAluno() {
     ) {
 
         resultado.style.display = "block";
+
         resultado.className = "erro";
 
-        resultado.innerHTML =
-            "⚠️ Informe uma frequência entre 0% e 100%.";
+        resultado.innerHTML = `
+
+            <div class="resultado-titulo">
+                ⚠️ Dados inválidos
+            </div>
+
+            Informe uma frequência
+            entre 0% e 100%.
+
+        `;
 
         return;
     }
 
 
-    // Utiliza a Árvore de Decisão
+    // Executa a Árvore de Decisão
+
     const classe =
         preverDesempenho(
             ano,
@@ -218,29 +426,125 @@ function analisarAluno() {
     resultado.style.display = "block";
 
 
+    // Resultado: Baixo desempenho
+
     if (classe === 1) {
 
         resultado.className = "baixo";
 
         resultado.innerHTML = `
-            ⚠️ Possível baixo desempenho escolar
-            <br><br>
-            Recomenda-se acompanhamento pedagógico.
+
+            <div class="resultado-titulo">
+
+                ⚠️ Possível baixo desempenho
+
+            </div>
+
+            <div>
+
+                O modelo identificou características
+                associadas à classe de possível
+                baixo desempenho.
+
+            </div>
+
+
+            <div class="dados">
+
+                <strong>📊 Dados analisados</strong>
+
+                <div>
+                    📅 Ano letivo: ${ano}
+                </div>
+
+                <div>
+                    📈 Frequência: ${frequencia}%
+                </div>
+
+                <div>
+                    🤖 Uso de IA:
+                    ${usoIA === 1 ? "Sim" : "Não"}
+                </div>
+
+            </div>
+
+
+            <div class="explicacao">
+
+                💡 <strong>Interpretação:</strong>
+
+                o resultado indica a necessidade de
+                atenção e acompanhamento pedagógico.
+
+            </div>
+
         `;
 
-    } else {
+    }
+
+
+    // Resultado: Adequado
+
+    else {
 
         resultado.className = "adequado";
 
         resultado.innerHTML = `
-            ✅ Desempenho adequado
-            <br><br>
-            Não foram identificados indícios de baixo desempenho pelo modelo.
+
+            <div class="resultado-titulo">
+
+                ✅ Desempenho adequado
+
+            </div>
+
+            <div>
+
+                Não foram identificadas, nesta análise
+                inicial, características associadas
+                ao baixo desempenho.
+
+            </div>
+
+
+            <div class="dados">
+
+                <strong>📊 Dados analisados</strong>
+
+                <div>
+                    📅 Ano letivo: ${ano}
+                </div>
+
+                <div>
+                    📈 Frequência: ${frequencia}%
+                </div>
+
+                <div>
+                    🤖 Uso de IA:
+                    ${usoIA === 1 ? "Sim" : "Não"}
+                </div>
+
+            </div>
+
+
+            <div class="explicacao">
+
+                💡 <strong>Interpretação:</strong>
+
+                de acordo com o modelo, os dados
+                informados não foram classificados
+                como possível baixo desempenho.
+
+            </div>
+
         `;
+
     }
+
 }
 
 </script>
 
+
 </body>
+
 </html>
