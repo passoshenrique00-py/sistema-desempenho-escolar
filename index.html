@@ -199,19 +199,17 @@
 
             padding: 15px;
 
-            background: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.75);
 
             border-radius: 10px;
 
             font-size: 16px;
 
-            color: #334155;
-
             text-align: center;
         }
 
         .acuracia {
-            margin-top: 20px;
+            margin-top: 15px;
 
             padding: 15px;
 
@@ -223,9 +221,9 @@
 
             color: #1e40af;
 
-            text-align: center;
-
             font-size: 15px;
+
+            text-align: center;
         }
 
         .explicacao {
@@ -305,7 +303,7 @@
     <!-- CÓDIGO DO ALUNO -->
 
     <label for="codigo">
-        🔢 Código do aluno
+        👤 Código do aluno
     </label>
 
     <input
@@ -347,7 +345,7 @@
     <input
         type="number"
         id="frequencia"
-        min="50"
+        min="0"
         max="100"
         step="0.1"
         value="75"
@@ -373,12 +371,16 @@
     </select>
 
 
+    <!-- BOTÃO -->
+
     <button onclick="analisarAluno()">
 
         🔎 ANALISAR ALUNO
 
     </button>
 
+
+    <!-- RESULTADO -->
 
     <div id="resultado"></div>
 
@@ -397,19 +399,7 @@
     </div>
 
 
-    <!-- ACURÁCIA -->
-
-    <div class="acuracia">
-
-        📊 <strong>Acurácia do modelo: 96,80%</strong>
-
-        <br>
-
-        O modelo apresentou 96,80% de acerto
-        nos dados de teste.
-
-    </div>
-
+    <!-- AVISO -->
 
     <p class="aviso">
 
@@ -433,10 +423,10 @@
 <script>
 
 
-/* =========================================
+/* =========================================================
    MODELO DA ÁRVORE DE DECISÃO
-   Acurácia: 96.80%
-   ========================================= */
+   Acurácia no conjunto de teste: 96,80%
+   ========================================================= */
 
 
 const scalerMean = [
@@ -454,12 +444,15 @@ const scalerScale = [
 
 
 const treeFeature = [
-    1, 2, 0, 1, 0, 1, -2, -2, 1, -2, -2, 0, 0, -2, -2, -2,
-    1, 1, 1, -2, -2, 0, -2, -2, 1, 0, -2, -2, 0, -2, -2,
-    1, 0, 0, -2, 1, -2, -2, 1, -2, -2, 1, 0, -2, 0, -2, -2,
-    1, 0, -2, -2, -2, 1, 0, 2, 1, 1, -2, -2, 1, -2, -2,
-    -2, 0, 2, 1, -2, -2, -2, 1, 0, -2, -2, 0, -2, -2,
-    1, 0, 2, 1, -2, -2, -2, -2, 1, 0, 2, -2, -2, -2, -2
+    1, 2, 0, 1, 0, 1, -2, -2, 1, -2, -2,
+    0, 0, -2, -2, -2, 1, 1, 1, -2, -2,
+    0, -2, -2, 1, 0, -2, -2, 0, -2, -2,
+    1, 0, 0, -2, 1, -2, -2, 1, -2, -2,
+    1, 0, -2, 0, -2, -2, 1, 0, -2, -2,
+    -2, 1, 0, 2, 1, 1, -2, -2, 1, -2,
+    -2, -2, 0, 2, 1, -2, -2, -2, 1, 0,
+    -2, -2, 0, -2, -2, 1, 0, 2, 1, -2,
+    -2, -2, -2, 1, 0, 2, -2, -2, -2, -2
 ];
 
 
@@ -492,7 +485,7 @@ const treeThreshold = [
     1.0572699010372162,
     -2.0,
     -2.0,
-    1.057269981891861,
+    1.0572699010372162,
     -2.0,
     -2.0,
     -1.9470092058181763,
@@ -559,28 +552,30 @@ const treeThreshold = [
 
 
 const treeLeft = [
-    1, 2, 3, 4, 5, 6, -1, -1, 9, -1, -1,
-    12, 13, -1, -1, -1, 17, 18, 19, -1, -1,
-    22, -1, -1, 25, 26, -1, -1, 29, -1, -1,
-    32, 33, 34, -1, 36, -1, -1, 39, -1, -1,
-    42, 43, -1, 45, -1, -1, 48, 49, -1, -1,
-    -1, 53, 54, 55, 56, 57, -1, -1, 60, -1,
-    -1, -1, 64, 65, 66, -1, -1, -1, 70, 71,
-    -1, -1, 74, -1, -1, 77, 78, 79, 80, -1,
-    -1, -1, -1, 85, 86, 87, -1, -1, -1, -1
+    1, 2, 3, 4, 5, 6, -1, -1, 9, -1,
+    -1, 12, 13, -1, -1, -1, 17, 18, 19,
+    -1, -1, 22, -1, -1, 25, 26, -1, -1,
+    29, -1, -1, 32, 33, 34, -1, 36, -1,
+    -1, 39, -1, -1, 42, 43, -1, 45, -1,
+    -1, 48, 49, -1, -1, -1, 53, 54, 55,
+    56, 57, -1, -1, 60, -1, -1, -1, 64,
+    65, 66, -1, -1, -1, 70, 71, -1, -1,
+    74, -1, -1, 77, 78, 79, 80, -1, -1,
+    -1, -1, 85, 86, 87, -1, -1, -1, -1
 ];
 
 
 const treeRight = [
-    52, 31, 16, 11, 8, 7, -1, -1, 10, -1, -1,
-    15, 14, -1, -1, -1, 24, 21, 20, -1, -1,
-    23, -1, -1, 28, 27, -1, -1, 30, -1, -1,
-    41, 38, 35, -1, 37, -1, -1, 40, -1, -1,
-    47, 44, -1, 46, -1, -1, 51, 50, -1, -1,
-    -1, 76, 63, 62, 59, 58, -1, -1, 61, -1,
-    -1, -1, 69, 68, 67, -1, -1, -1, 73, 72,
-    -1, -1, 75, -1, -1, 84, 83, 82, 81, -1,
-    -1, -1, -1, -1, 90, 89, 88, -1, -1, -1, -1
+    52, 31, 16, 11, 8, 7, -1, -1, 10,
+    -1, -1, 15, 14, -1, -1, -1, 24, 21,
+    20, -1, -1, 23, -1, -1, 28, 27, -1,
+    -1, 30, -1, -1, 41, 38, 35, -1, 37,
+    -1, -1, 40, -1, -1, 47, 44, -1, 46,
+    -1, -1, 51, 50, -1, -1, -1, 76, 63,
+    62, 59, 58, -1, -1, 61, -1, -1, -1,
+    69, 68, 67, -1, -1, -1, 73, 72, -1,
+    -1, 75, -1, -1, 84, 83, 82, 81, -1,
+    -1, -1, -1, 90, 89, 88, -1, -1, -1, -1
 ];
 
 
@@ -652,13 +647,13 @@ const treeValue = [
     [[0.75, 0.25]],
     [[0.6381578947368421, 0.3618421052631579]],
     [[0.4117647058823529, 0.5882352941176471]],
-    [[0.8214285714285714, 0.17857142857142857]],
+    [[0.8214285714285714, 0.17857142857142858]],
     [[1.0, 0.0]],
     [[0.9715189873417721, 0.028481012658227847]],
     [[0.9182389937106918, 0.08176100628930817]],
     [[0.8333333333333334, 0.16666666666666666]],
     [[0.9696969696969697, 0.030303030303030304]],
-    [[0.9894291754756871, 0.010570824324312896]],
+    [[0.9894291754756871, 0.010570824312002849]],
     [[0.9754601226993865, 0.024539877300613498]],
     [[0.9967741935483871, 0.0032258064516129032]],
     [[0.9935458634852338, 0.006454136514766282]],
@@ -679,19 +674,16 @@ const treeValue = [
 ];
 
 
+/* =========================================================
+   ACURÁCIA DO MODELO
+   ========================================================= */
+
 const acuraciaModelo = 0.9680;
 
-const featureNames = [
-    "ano",
-    "frequencia",
-    "uso_ia"
-];
 
-
-/* =========================================
+/* =========================================================
    FUNÇÃO DA ÁRVORE
-   ========================================= */
-
+   ========================================================= */
 
 function preverDesempenho(ano, frequencia, usoIA) {
 
@@ -701,30 +693,21 @@ function preverDesempenho(ano, frequencia, usoIA) {
         usoIA
     ];
 
-
     const entradaPadronizada = entrada.map(
         (valor, i) =>
-            (valor - scalerMean[i]) /
-            scalerScale[i]
+            (valor - scalerMean[i])
+            / scalerScale[i]
     );
-
 
     let no = 0;
 
-
     while (treeLeft[no] !== -1) {
 
-        const feature =
-            treeFeature[no];
+        const feature = treeFeature[no];
 
-        const threshold =
-            treeThreshold[no];
+        const threshold = treeThreshold[no];
 
-
-        if (
-            entradaPadronizada[feature]
-            <= threshold
-        ) {
+        if (entradaPadronizada[feature] <= threshold) {
 
             no = treeLeft[no];
 
@@ -736,40 +719,30 @@ function preverDesempenho(ano, frequencia, usoIA) {
 
     }
 
+    const valores = treeValue[no][0];
 
-    const valores =
-        treeValue[no][0];
+    const probabilidadeAdequado = valores[0];
 
-
-    const probabilidadeBaixo =
-        valores[1];
-
-    const probabilidadeAdequado =
-        valores[0];
-
+    const probabilidadeBaixo = valores[1];
 
     const classe =
         probabilidadeBaixo > probabilidadeAdequado
-        ? 1
-        : 0;
-
+            ? 1
+            : 0;
 
     return {
         classe: classe,
-        probabilidadeBaixo: probabilidadeBaixo,
-        probabilidadeAdequado: probabilidadeAdequado
+        probabilidadeAdequado: probabilidadeAdequado,
+        probabilidadeBaixo: probabilidadeBaixo
     };
-
 }
 
 
-/* =========================================
+/* =========================================================
    ANÁLISE DO ALUNO
-   ========================================= */
-
+   ========================================================= */
 
 function analisarAluno() {
-
 
     const codigo =
         document
@@ -807,7 +780,7 @@ function analisarAluno() {
         .getElementById("resultado");
 
 
-    /* VALIDAR CÓDIGO */
+    /* VERIFICAÇÃO DO CÓDIGO */
 
     if (codigo === "") {
 
@@ -823,8 +796,7 @@ function analisarAluno() {
 
             </div>
 
-            Digite o código antes de realizar
-            a análise.
+            Digite o código antes de realizar a análise.
 
         `;
 
@@ -833,11 +805,11 @@ function analisarAluno() {
     }
 
 
-    /* VALIDAR FREQUÊNCIA */
+    /* VERIFICAÇÃO DA FREQUÊNCIA */
 
     if (
         isNaN(frequencia) ||
-        frequencia < 50 ||
+        frequencia < 0 ||
         frequencia > 100
     ) {
 
@@ -853,7 +825,7 @@ function analisarAluno() {
 
             </div>
 
-            Informe um valor entre 50% e 100%.
+            Informe um valor entre 0% e 100%.
 
         `;
 
@@ -862,7 +834,7 @@ function analisarAluno() {
     }
 
 
-    /* EXECUTAR MODELO */
+    /* EXECUTA O MODELO */
 
     const previsao =
         preverDesempenho(
@@ -878,24 +850,26 @@ function analisarAluno() {
 
     const probabilidade =
         classe === 1
-        ? previsao.probabilidadeBaixo
-        : previsao.probabilidadeAdequado;
+            ? previsao.probabilidadeBaixo
+            : previsao.probabilidadeAdequado;
 
 
-    const porcentagem =
-        (probabilidade * 100).toFixed(1);
+    const probabilidadeFormatada =
+        (probabilidade * 100).toFixed(2);
+
+
+    const acuraciaFormatada =
+        (acuraciaModelo * 100).toFixed(2);
 
 
     resultado.style.display = "block";
 
 
-    /* =========================================
+    /* =====================================================
        BAIXO DESEMPENHO
-       ========================================= */
-
+       ===================================================== */
 
     if (classe === 1) {
-
 
         resultado.className = "baixo";
 
@@ -925,7 +899,7 @@ function analisarAluno() {
                 </strong>
 
                 <div>
-                    🔢 Código do aluno: ${codigo}
+                    👤 Código do aluno: ${codigo}
                 </div>
 
                 <div>
@@ -946,31 +920,13 @@ function analisarAluno() {
 
             <div class="probabilidade">
 
-                📊 <strong>Probabilidade estimada:</strong>
+                📊 <strong>Probabilidade estimada</strong>
 
-                <br>
+                <br><br>
 
-                ${porcentagem}%
-
-            </div>
-
-
-            <div class="explicacao">
-
-                💡 <strong>Resultado da análise:</strong>
-
-                os dados informados foram classificados
-                pelo modelo como possível baixo desempenho.
-
-            </div>
-
-
-            <div class="explicacao">
-
-                💡 <strong>Orientação:</strong>
-
-                recomenda-se acompanhamento pedagógico
-                e observação do desenvolvimento do aluno.
+                <strong>
+                    ${probabilidadeFormatada}%
+                </strong>
 
             </div>
 
@@ -979,20 +935,31 @@ function analisarAluno() {
 
                 🎯 <strong>Acurácia do modelo:</strong>
 
-                96,80%
+                ${acuraciaFormatada}%
+
+            </div>
+
+
+            <div class="explicacao">
+
+                💡 <strong>Orientação:</strong>
+
+                recomenda-se acompanhamento
+                pedagógico e observação do
+                desenvolvimento do aluno.
 
             </div>
 
         `;
 
 
-    } else {
+    }
 
+    /* =====================================================
+       DESEMPENHO ADEQUADO
+       ===================================================== */
 
-        /* =========================================
-           DESEMPENHO ADEQUADO
-           ========================================= */
-
+    else {
 
         resultado.className = "adequado";
 
@@ -1022,7 +989,7 @@ function analisarAluno() {
                 </strong>
 
                 <div>
-                    🔢 Código do aluno: ${codigo}
+                    👤 Código do aluno: ${codigo}
                 </div>
 
                 <div>
@@ -1043,21 +1010,22 @@ function analisarAluno() {
 
             <div class="probabilidade">
 
-                📊 <strong>Probabilidade estimada:</strong>
+                📊 <strong>Probabilidade estimada</strong>
 
-                <br>
+                <br><br>
 
-                ${porcentagem}%
+                <strong>
+                    ${probabilidadeFormatada}%
+                </strong>
 
             </div>
 
 
-            <div class="explicacao">
+            <div class="acuracia">
 
-                💡 <strong>Resultado da análise:</strong>
+                🎯 <strong>Acurácia do modelo:</strong>
 
-                os dados informados foram classificados
-                pelo modelo como desempenho adequado.
+                ${acuraciaFormatada}%
 
             </div>
 
@@ -1072,21 +1040,11 @@ function analisarAluno() {
 
             </div>
 
-
-            <div class="acuracia">
-
-                🎯 <strong>Acurácia do modelo:</strong>
-
-                96,80%
-
-            </div>
-
         `;
 
     }
 
 }
-
 
 </script>
 
