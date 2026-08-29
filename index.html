@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Desempenho Escolar</title>
+    <title>Análise de Desempenho Escolar</title>
 
     <style>
 
@@ -84,8 +84,7 @@
             color: #1e293b;
         }
 
-        input,
-        select {
+        input {
             width: 100%;
 
             padding: 13px;
@@ -99,8 +98,7 @@
             background: white;
         }
 
-        input:focus,
-        select:focus {
+        input:focus {
             outline: none;
 
             border-color: #2563eb;
@@ -194,38 +192,6 @@
             margin: 7px 0;
         }
 
-        .probabilidade {
-            margin-top: 18px;
-
-            padding: 15px;
-
-            background: rgba(255,255,255,0.75);
-
-            border-radius: 10px;
-
-            font-size: 16px;
-
-            text-align: center;
-        }
-
-        .acuracia {
-            margin-top: 15px;
-
-            padding: 15px;
-
-            background: #eff6ff;
-
-            border: 1px solid #bfdbfe;
-
-            border-radius: 10px;
-
-            color: #1e40af;
-
-            font-size: 15px;
-
-            text-align: center;
-        }
-
         .explicacao {
             margin-top: 18px;
 
@@ -270,6 +236,14 @@
             font-size: 12px;
         }
 
+        .carregando {
+            background: #eff6ff;
+
+            border: 1px solid #93c5fd;
+
+            color: #1e40af;
+        }
+
     </style>
 
 </head>
@@ -300,78 +274,17 @@
     <hr class="linha">
 
 
-    <!-- CÓDIGO DO ALUNO -->
-
     <label for="codigo">
-        👤 Código do aluno
+        🔢 Código do aluno
     </label>
 
     <input
         type="text"
         id="codigo"
-        placeholder="Digite o código do aluno"
+        placeholder="Ex.: ALUNO0001"
+        autocomplete="off"
     >
 
-
-    <!-- ANO -->
-
-    <label for="ano">
-        📅 Ano letivo
-    </label>
-
-    <select id="ano">
-
-        <option value="2024">2024</option>
-
-        <option value="2025">2025</option>
-
-        <option value="2026" selected>
-            2026
-        </option>
-
-        <option value="2027">2027</option>
-
-        <option value="2028">2028</option>
-
-    </select>
-
-
-    <!-- FREQUÊNCIA -->
-
-    <label for="frequencia">
-        📈 Frequência (%)
-    </label>
-
-    <input
-        type="number"
-        id="frequencia"
-        min="0"
-        max="100"
-        step="0.1"
-        value="75"
-    >
-
-
-    <!-- USO DE IA -->
-
-    <label for="usoIA">
-        🤖 O aluno utiliza Inteligência Artificial?
-    </label>
-
-    <select id="usoIA">
-
-        <option value="0" selected>
-            Não
-        </option>
-
-        <option value="1">
-            Sim
-        </option>
-
-    </select>
-
-
-    <!-- BOTÃO -->
 
     <button onclick="analisarAluno()">
 
@@ -380,12 +293,8 @@
     </button>
 
 
-    <!-- RESULTADO -->
-
     <div id="resultado"></div>
 
-
-    <!-- MODELO -->
 
     <div class="modelo">
 
@@ -396,15 +305,22 @@
         Árvore de Decisão treinada no projeto
         de Aprendizado de Máquina.
 
+        <br><br>
+
+        📊 <strong>Acurácia do modelo: 96,80%</strong>
+
+        <br>
+
+        O modelo apresentou 96,80% de acerto
+        nos dados de teste.
+
     </div>
 
-
-    <!-- AVISO -->
 
     <p class="aviso">
 
         ⚠️ Esta ferramenta apresenta uma previsão
-        baseada nos dados informados e não substitui
+        baseada nos dados do modelo e não substitui
         a avaliação pedagógica do professor.
 
     </p>
@@ -423,10 +339,11 @@
 <script>
 
 
-/* =========================================================
+/* =========================================
    MODELO DA ÁRVORE DE DECISÃO
-   Acurácia no conjunto de teste: 96,80%
-   ========================================================= */
+
+   Acurácia: 96,80%
+   ========================================= */
 
 
 const scalerMean = [
@@ -444,15 +361,12 @@ const scalerScale = [
 
 
 const treeFeature = [
-    1, 2, 0, 1, 0, 1, -2, -2, 1, -2, -2,
-    0, 0, -2, -2, -2, 1, 1, 1, -2, -2,
-    0, -2, -2, 1, 0, -2, -2, 0, -2, -2,
-    1, 0, 0, -2, 1, -2, -2, 1, -2, -2,
-    1, 0, -2, 0, -2, -2, 1, 0, -2, -2,
-    -2, 1, 0, 2, 1, 1, -2, -2, 1, -2,
-    -2, -2, 0, 2, 1, -2, -2, -2, 1, 0,
-    -2, -2, 0, -2, -2, 1, 0, 2, 1, -2,
-    -2, -2, -2, 1, 0, 2, -2, -2, -2, -2
+    1, 2, 0, 1, 0, 1, -2, -2, 1, -2, -2, 0, 0, -2, -2, -2,
+    1, 1, 1, -2, -2, 0, -2, -2, 1, 0, -2, -2, 0, -2, -2,
+    1, 0, 0, -2, 1, -2, -2, 1, -2, -2, 1, 0, -2, 0, -2, -2,
+    1, 0, -2, -2, -2, 1, 0, 2, 1, 1, -2, -2, 1, -2, -2,
+    -2, 0, 2, 1, -2, -2, -2, 1, 0, -2, -2, 0, -2, -2,
+    1, 0, 2, 1, -2, -2, -2, -2, 1, 0, 2, -2, -2, -2, -2
 ];
 
 
@@ -552,140 +466,204 @@ const treeThreshold = [
 
 
 const treeLeft = [
-    1, 2, 3, 4, 5, 6, -1, -1, 9, -1,
-    -1, 12, 13, -1, -1, -1, 17, 18, 19,
-    -1, -1, 22, -1, -1, 25, 26, -1, -1,
-    29, -1, -1, 32, 33, 34, -1, 36, -1,
-    -1, 39, -1, -1, 42, 43, -1, 45, -1,
-    -1, 48, 49, -1, -1, -1, 53, 54, 55,
-    56, 57, -1, -1, 60, -1, -1, -1, 64,
-    65, 66, -1, -1, -1, 70, 71, -1, -1,
-    74, -1, -1, 77, 78, 79, 80, -1, -1,
-    -1, -1, 85, 86, 87, -1, -1, -1, -1
+    1, 2, 3, 4, 5, 6, -1, -1, 9, -1, -1, 12, 13, -1, -1, -1,
+    17, 18, 19, -1, -1, 22, -1, -1, 25, 26, -1, -1, 29, -1, -1,
+    32, 33, 34, -1, 36, -1, -1, 39, -1, -1, 42, 43, -1, 45, -1,
+    -1, 48, 49, -1, -1, -1, 53, 54, 55, 56, 57, -1, -1, 60,
+    -1, -1, -1, 64, 65, 66, -1, -1, -1, 70, 71, -1, -1, 74,
+    -1, -1, 77, 78, 79, 80, -1, -1, -1, -1, 85, 86, 87, -1,
+    -1, -1, -1
 ];
 
 
 const treeRight = [
-    52, 31, 16, 11, 8, 7, -1, -1, 10,
-    -1, -1, 15, 14, -1, -1, -1, 24, 21,
-    20, -1, -1, 23, -1, -1, 28, 27, -1,
-    -1, 30, -1, -1, 41, 38, 35, -1, 37,
-    -1, -1, 40, -1, -1, 47, 44, -1, 46,
-    -1, -1, 51, 50, -1, -1, -1, 76, 63,
-    62, 59, 58, -1, -1, 61, -1, -1, -1,
-    69, 68, 67, -1, -1, -1, 73, 72, -1,
-    -1, 75, -1, -1, 84, 83, 82, 81, -1,
-    -1, -1, -1, 90, 89, 88, -1, -1, -1, -1
+    52, 31, 16, 11, 8, 7, -1, -1, 10, -1, -1, 15, 14, -1, -1, -1,
+    24, 21, 20, -1, -1, 23, -1, -1, 28, 27, -1, -1, 30, -1, -1,
+    41, 38, 35, -1, 37, -1, -1, 40, -1, -1, 47, 44, -1, 46, -1,
+    -1, 51, 50, -1, -1, -1, 76, 63, 62, 59, 58, -1, -1, 61,
+    -1, -1, -1, 69, 68, 67, -1, -1, -1, 73, 72, -1, -1, 75,
+    -1, -1, 84, 83, 82, 81, -1, -1, -1, -1, 90, 89, 88, -1,
+    -1, -1, -1
 ];
 
 
 const treeValue = [
-    [[0.8385, 0.1615]],
-    [[0.42396061269146607, 0.5760393873085339]],
-    [[0.21423047177107502, 0.785769528228925]],
-    [[0.06327543424317618, 0.9367245657568238]],
-    [[0.031029619181946404, 0.9689703808180536]],
-    [[0.00411522633744856, 0.9958847736625515]],
-    [[0.0, 1.0]],
-    [[0.029850746268656716, 0.9701492537313433]],
-    [[0.08968609865470852, 0.9103139013452914]],
-    [[0.007575757575757576, 0.9924242424242424]],
-    [[0.2087912087912088, 0.7912087912087912]],
-    [[0.29896907216494845, 0.7010309278350515]],
-    [[0.1111111111111111, 0.8888888888888888]],
-    [[0.0, 1.0]],
-    [[0.2413793103448276, 0.7586206896551724]],
-    [[0.6470588235294118, 0.35294117647058826]],
-    [[0.46406570841889117, 0.5359342915811088]],
-    [[0.11570247933884298, 0.8842975206611571]],
-    [[0.027777777777777776, 0.9722222222222222]],
-    [[0.0, 1.0]],
-    [[0.0625, 0.9375]],
-    [[0.3709677419354839, 0.6290322580645161]],
-    [[0.1875, 0.8125]],
-    [[0.5666666666666667, 0.43333333333333335]],
-    [[0.8081632653061225, 0.19183673469387755]],
-    [[0.5952380952380952, 0.40476190476190477]],
-    [[0.4146341463414634, 0.5853658536585366]],
-    [[0.7674418604651163, 0.23255813953488372]],
-    [[0.9192546583850931, 0.08074534161490683]],
-    [[0.8059701492537313, 0.19402985074626866]],
-    [[1.0, 0.0]],
-    [[0.930841121495327, 0.0691588785046729]],
-    [[0.4918032786885246, 0.5081967213114754]],
-    [[0.14705882352941177, 0.8529411764705882]],
-    [[0.0, 1.0]],
-    [[0.45454545454545453, 0.5454545454545454]],
-    [[0.0, 1.0]],
-    [[0.8333333333333334, 0.16666666666666666]],
-    [[0.9259259259259259, 0.07407407407407407]],
-    [[0.0, 1.0]],
-    [[1.0, 0.0]],
-    [[0.9873417721518988, 0.012658227848101266]],
-    [[0.8235294117647058, 0.17647058823529413]],
-    [[0.0, 1.0]],
-    [[0.9333333333333333, 0.06666666666666667]],
-    [[0.8571428571428571, 0.14285714285714285]],
-    [[1.0, 0.0]],
-    [[0.9934354485776805, 0.006564551422319475]],
-    [[0.9629629629629629, 0.037037037037037035]],
-    [[0.85, 0.15]],
-    [[1.0, 0.0]],
-    [[1.0, 0.0]],
-    [[0.9612767336357745, 0.03872326636422554]],
-    [[0.8054768649669499, 0.19452313503305005]],
-    [[0.357487922705314, 0.642512077294686]],
-    [[0.13071895424836602, 0.869281045751634]],
-    [[0.05970149253731343, 0.9402985074626866]],
-    [[0.06060606060606061, 0.9393939393939394]],
-    [[0.058823529411764705, 0.9411764705882353]],
-    [[0.18604651162790697, 0.813953488372093]],
-    [[0.15789473684210525, 0.8421052631578947]],
-    [[0.20833333333333334, 0.7916666666666666]],
-    [[1.0, 0.0]],
-    [[0.9143192488262911, 0.08568075117370892]],
-    [[0.75, 0.25]],
-    [[0.6381578947368421, 0.3618421052631579]],
-    [[0.4117647058823529, 0.5882352941176471]],
-    [[0.8214285714285714, 0.17857142857142858]],
-    [[1.0, 0.0]],
-    [[0.9715189873417721, 0.028481012658227847]],
-    [[0.9182389937106918, 0.08176100628930817]],
-    [[0.8333333333333334, 0.16666666666666666]],
-    [[0.9696969696969697, 0.030303030303030304]],
-    [[0.9894291754756871, 0.010570824312002849]],
-    [[0.9754601226993865, 0.024539877300613498]],
-    [[0.9967741935483871, 0.0032258064516129032]],
-    [[0.9935458634852338, 0.006454136514766282]],
-    [[0.9659936238044633, 0.03400637619553666]],
-    [[0.8423645320197044, 0.15763546798029557]],
-    [[0.7647058823529411, 0.23529411764705882]],
-    [[0.7333333333333333, 0.26666666666666666]],
-    [[0.7802197802197802, 0.21978021978021978]],
-    [[1.0, 0.0]],
-    [[1.0, 0.0]],
-    [[0.9997603068072867, 0.00023969319271332693]],
-    [[0.9971509971509972, 0.002849002849002849]],
-    [[0.9811320754716981, 0.018867924528301886]],
-    [[0.9722222222222222, 0.027777777777777776]],
-    [[1.0, 0.0]],
-    [[1.0, 0.0]],
-    [[1.0, 0.0]]
+    [[0.8385,0.1615]],
+    [[0.42396061269146607,0.5760393873085339]],
+    [[0.21423047177107502,0.785769528228925]],
+    [[0.06327543424317618,0.9367245657568238]],
+    [[0.031029619181946404,0.9689703808180536]],
+    [[0.00411522633744856,0.9958847736625515]],
+    [[0.0,1.0]],
+    [[0.029850746268656716,0.9701492537313433]],
+    [[0.08968609865470852,0.9103139013452912]],
+    [[0.007575757575757576,0.9924242424242424]],
+    [[0.2087912087912088,0.7912087912087912]],
+    [[0.29896907216494845,0.7010309278350515]],
+    [[0.1111111111111111,0.8888888888888888]],
+    [[0.0,1.0]],
+    [[0.2413793103448276,0.7586206896551724]],
+    [[0.6470588235294118,0.35294117647058826]],
+    [[0.46406570841889117,0.5359342915811088]],
+    [[0.11570247933884298,0.8842975206611571]],
+    [[0.027777777777777776,0.9722222222222222]],
+    [[0.0,1.0]],
+    [[0.0625,0.9375]],
+    [[0.3709677419354839,0.6290322580645161]],
+    [[0.1875,0.8125]],
+    [[0.5666666666666667,0.43333333333333335]],
+    [[0.8081632653061225,0.19183673469387755]],
+    [[0.5952380952380952,0.40476190476190477]],
+    [[0.4146341463414634,0.5853658536585366]],
+    [[0.7674418604651163,0.23255813953488372]],
+    [[0.9192546583850931,0.08074534161490683]],
+    [[0.8059701492537313,0.19402985074626866]],
+    [[1.0,0.0]],
+    [[0.930841121495327,0.0691588785046729]],
+    [[0.4918032786885246,0.5081967213114754]],
+    [[0.14705882352941177,0.8529411764705882]],
+    [[0.0,1.0]],
+    [[0.45454545454545453,0.5454545454545454]],
+    [[0.0,1.0]],
+    [[0.8333333333333334,0.16666666666666666]],
+    [[0.9259259259259259,0.07407407407407407]],
+    [[0.0,1.0]],
+    [[1.0,0.0]],
+    [[0.9873417721518988,0.012658227848101266]],
+    [[0.8235294117647058,0.17647058823529413]],
+    [[0.0,1.0]],
+    [[0.9333333333333333,0.06666666666666667]],
+    [[0.8571428571428571,0.14285714285714285]],
+    [[1.0,0.0]],
+    [[0.9934354485776805,0.006564551422319475]],
+    [[0.9629629629629629,0.037037037037037035]],
+    [[0.85,0.15]],
+    [[1.0,0.0]],
+    [[1.0,0.0]],
+    [[0.9612767336357745,0.03872326636422554]],
+    [[0.8054768649669499,0.19452313503305005]],
+    [[0.357487922705314,0.642512077294686]],
+    [[0.13071895424836602,0.869281045751634]],
+    [[0.05970149253731343,0.9402985074626866]],
+    [[0.06060606060606061,0.9393939393939394]],
+    [[0.058823529411764705,0.9411764705882353]],
+    [[0.18604651162790697,0.813953488372093]],
+    [[0.15789473684210525,0.8421052631578947]],
+    [[0.20833333333333334,0.7916666666666666]],
+    [[1.0,0.0]],
+    [[0.9143192488262911,0.08568075117370892]],
+    [[0.75,0.25]],
+    [[0.6381578947368421,0.3618421052631579]],
+    [[0.4117647058823529,0.5882352941176471]],
+    [[0.8214285714285714,0.17857142857142858]],
+    [[1.0,0.0]],
+    [[0.9715189873417721,0.028481012658227847]],
+    [[0.9182389937106918,0.0817610062893082]],
+    [[0.8333333333333334,0.16666666666666666]],
+    [[0.9696969696969697,0.030303030303030304]],
+    [[0.9894291754756871,0.01057082431276167]],
+    [[0.9754601226993865,0.024539877300613498]],
+    [[0.9967741935483871,0.0032258064516129032]],
+    [[0.9935458634852338,0.006454136514766282]],
+    [[0.9659936238044633,0.03400637619553666]],
+    [[0.8423645320197044,0.15763546798029557]],
+    [[0.7647058823529411,0.23529411764705882]],
+    [[0.7333333333333333,0.26666666666666666]],
+    [[0.7802197802197802,0.21978021978021978]],
+    [[1.0,0.0]],
+    [[1.0,0.0]],
+    [[0.9997603068072867,0.00023969319271332693]],
+    [[0.9971509971509972,0.002849002849002849]],
+    [[0.9811320754716981,0.018867924528301886]],
+    [[0.9722222222222222,0.027777777777777776]],
+    [[1.0,0.0]],
+    [[1.0,0.0]],
+    [[1.0,0.0]]
 ];
 
-
-/* =========================================================
-   ACURÁCIA DO MODELO
-   ========================================================= */
 
 const acuraciaModelo = 0.9680;
 
 
-/* =========================================================
-   FUNÇÃO DA ÁRVORE
-   ========================================================= */
+/* =========================================
+   DADOS DOS ALUNOS
+   ========================================= */
 
-function preverDesempenho(ano, frequencia, usoIA) {
+let alunos = [];
+
+
+/* =========================================
+   CARREGAR A BASE
+   ========================================= */
+
+fetch("alunos.json")
+    .then(response => {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Não foi possível carregar a base de alunos."
+            );
+
+        }
+
+        return response.json();
+
+    })
+    .then(data => {
+
+        alunos = data;
+
+        console.log(
+            "Base carregada:",
+            alunos.length,
+            "alunos"
+        );
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        const resultado =
+            document.getElementById("resultado");
+
+        resultado.style.display = "block";
+
+        resultado.className = "erro";
+
+        resultado.innerHTML = `
+
+            <div class="resultado-titulo">
+
+                ⚠️ Erro ao carregar a base
+
+            </div>
+
+            Não foi possível carregar os dados
+            dos alunos.
+
+            <br><br>
+
+            Verifique se o arquivo
+            <strong>alunos.json</strong>
+            está no mesmo local do
+            <strong>index.html</strong>.
+
+        `;
+
+    });
+
+
+/* =========================================
+   FUNÇÃO DA ÁRVORE
+   ========================================= */
+
+function preverDesempenho(
+    ano,
+    frequencia,
+    usoIA
+) {
 
     const entrada = [
         ano,
@@ -693,21 +671,34 @@ function preverDesempenho(ano, frequencia, usoIA) {
         usoIA
     ];
 
-    const entradaPadronizada = entrada.map(
-        (valor, i) =>
-            (valor - scalerMean[i])
-            / scalerScale[i]
-    );
+
+    const entradaPadronizada =
+        entrada.map(
+
+            (valor, i) =>
+                (valor - scalerMean[i])
+                / scalerScale[i]
+
+        );
+
 
     let no = 0;
 
+
     while (treeLeft[no] !== -1) {
 
-        const feature = treeFeature[no];
+        const feature =
+            treeFeature[no];
 
-        const threshold = treeThreshold[no];
 
-        if (entradaPadronizada[feature] <= threshold) {
+        const threshold =
+            treeThreshold[no];
+
+
+        if (
+            entradaPadronizada[feature]
+            <= threshold
+        ) {
 
             no = treeLeft[no];
 
@@ -719,60 +710,53 @@ function preverDesempenho(ano, frequencia, usoIA) {
 
     }
 
-    const valores = treeValue[no][0];
 
-    const probabilidadeAdequado = valores[0];
+    const valores =
+        treeValue[no][0];
 
-    const probabilidadeBaixo = valores[1];
+
+    const probabilidadeBaixo =
+        valores[1];
+
+
+    const probabilidadeAdequado =
+        valores[0];
+
 
     const classe =
-        probabilidadeBaixo > probabilidadeAdequado
+        probabilidadeBaixo >
+        probabilidadeAdequado
             ? 1
             : 0;
 
+
     return {
+
         classe: classe,
-        probabilidadeAdequado: probabilidadeAdequado,
-        probabilidadeBaixo: probabilidadeBaixo
+
+        probabilidade:
+            classe === 1
+                ? probabilidadeBaixo
+                : probabilidadeAdequado
+
     };
+
 }
 
 
-/* =========================================================
+/* =========================================
    ANÁLISE DO ALUNO
-   ========================================================= */
+   ========================================= */
 
 function analisarAluno() {
 
-    const codigo =
+
+    const codigoInput =
         document
         .getElementById("codigo")
         .value
-        .trim();
-
-
-    const ano =
-        Number(
-            document
-            .getElementById("ano")
-            .value
-        );
-
-
-    const frequencia =
-        Number(
-            document
-            .getElementById("frequencia")
-            .value
-        );
-
-
-    const usoIA =
-        Number(
-            document
-            .getElementById("usoIA")
-            .value
-        );
+        .trim()
+        .toUpperCase();
 
 
     const resultado =
@@ -780,9 +764,11 @@ function analisarAluno() {
         .getElementById("resultado");
 
 
-    /* VERIFICAÇÃO DO CÓDIGO */
+    /* -----------------------------
+       VALIDAÇÃO DO CÓDIGO
+       ----------------------------- */
 
-    if (codigo === "") {
+    if (codigoInput === "") {
 
         resultado.style.display = "block";
 
@@ -796,7 +782,8 @@ function analisarAluno() {
 
             </div>
 
-            Digite o código antes de realizar a análise.
+            Digite o código antes de realizar
+            a análise.
 
         `;
 
@@ -805,13 +792,53 @@ function analisarAluno() {
     }
 
 
-    /* VERIFICAÇÃO DA FREQUÊNCIA */
+    /* -----------------------------
+       VERIFICAR SE A BASE FOI CARREGADA
+       ----------------------------- */
 
-    if (
-        isNaN(frequencia) ||
-        frequencia < 0 ||
-        frequencia > 100
-    ) {
+    if (alunos.length === 0) {
+
+        resultado.style.display = "block";
+
+        resultado.className = "carregando";
+
+        resultado.innerHTML = `
+
+            <div class="resultado-titulo">
+
+                ⏳ Carregando dados
+
+            </div>
+
+            Aguarde alguns segundos e tente
+            novamente.
+
+        `;
+
+        return;
+
+    }
+
+
+    /* -----------------------------
+       PROCURAR O ALUNO PELO CÓDIGO
+       ----------------------------- */
+
+    const aluno =
+        alunos.find(
+
+            item =>
+                String(item.codigo_aluno)
+                .toUpperCase() === codigoInput
+
+        );
+
+
+    /* -----------------------------
+       CÓDIGO NÃO ENCONTRADO
+       ----------------------------- */
+
+    if (!aluno) {
 
         resultado.style.display = "block";
 
@@ -821,11 +848,18 @@ function analisarAluno() {
 
             <div class="resultado-titulo">
 
-                ⚠️ Frequência inválida
+                ⚠️ Código não encontrado
 
             </div>
 
-            Informe um valor entre 0% e 100%.
+            O código
+            <strong>${codigoInput}</strong>
+            não foi encontrado na base de alunos.
+
+            <br><br>
+
+            Verifique o código informado e
+            tente novamente.
 
         `;
 
@@ -834,7 +868,25 @@ function analisarAluno() {
     }
 
 
-    /* EXECUTA O MODELO */
+    /* -----------------------------
+       PEGAR DADOS DO ALUNO
+       ----------------------------- */
+
+    const ano =
+        Number(aluno.ano);
+
+
+    const frequencia =
+        Number(aluno.frequencia);
+
+
+    const usoIA =
+        Number(aluno.uso_ia);
+
+
+    /* -----------------------------
+       FAZER A PREVISÃO
+       ----------------------------- */
 
     const previsao =
         preverDesempenho(
@@ -849,30 +901,19 @@ function analisarAluno() {
 
 
     const probabilidade =
-        classe === 1
-            ? previsao.probabilidadeBaixo
-            : previsao.probabilidadeAdequado;
-
-
-    const probabilidadeFormatada =
-        (probabilidade * 100).toFixed(2);
-
-
-    const acuraciaFormatada =
-        (acuraciaModelo * 100).toFixed(2);
+        previsao.probabilidade * 100;
 
 
     resultado.style.display = "block";
 
 
-    /* =====================================================
-       BAIXO DESEMPENHO
-       ===================================================== */
+    /* =========================================
+       POSSÍVEL BAIXO DESEMPENHO
+       ========================================= */
 
     if (classe === 1) {
 
         resultado.className = "baixo";
-
 
         resultado.innerHTML = `
 
@@ -899,7 +940,7 @@ function analisarAluno() {
                 </strong>
 
                 <div>
-                    👤 Código do aluno: ${codigo}
+                    🔢 Código: ${aluno.codigo_aluno}
                 </div>
 
                 <div>
@@ -918,24 +959,23 @@ function analisarAluno() {
             </div>
 
 
-            <div class="probabilidade">
+            <div class="explicacao">
 
-                📊 <strong>Probabilidade estimada</strong>
+                📌 <strong>Resultado da análise:</strong>
 
-                <br><br>
-
-                <strong>
-                    ${probabilidadeFormatada}%
-                </strong>
+                o aluno apresentou frequência de
+                ${frequencia}% e o modelo classificou
+                os dados informados como
+                <strong>possível baixo desempenho</strong>.
 
             </div>
 
 
-            <div class="acuracia">
+            <div class="explicacao">
 
-                🎯 <strong>Acurácia do modelo:</strong>
+                📊 <strong>Probabilidade estimada:</strong>
 
-                ${acuraciaFormatada}%
+                ${probabilidade.toFixed(2)}%
 
             </div>
 
@@ -955,14 +995,14 @@ function analisarAluno() {
 
     }
 
-    /* =====================================================
+
+    /* =========================================
        DESEMPENHO ADEQUADO
-       ===================================================== */
+       ========================================= */
 
     else {
 
         resultado.className = "adequado";
-
 
         resultado.innerHTML = `
 
@@ -989,7 +1029,7 @@ function analisarAluno() {
                 </strong>
 
                 <div>
-                    👤 Código do aluno: ${codigo}
+                    🔢 Código: ${aluno.codigo_aluno}
                 </div>
 
                 <div>
@@ -1008,24 +1048,23 @@ function analisarAluno() {
             </div>
 
 
-            <div class="probabilidade">
+            <div class="explicacao">
 
-                📊 <strong>Probabilidade estimada</strong>
+                📌 <strong>Resultado da análise:</strong>
 
-                <br><br>
-
-                <strong>
-                    ${probabilidadeFormatada}%
-                </strong>
+                o aluno apresentou frequência de
+                ${frequencia}% e, de acordo com o
+                modelo, os dados foram classificados
+                como <strong>desempenho adequado</strong>.
 
             </div>
 
 
-            <div class="acuracia">
+            <div class="explicacao">
 
-                🎯 <strong>Acurácia do modelo:</strong>
+                📊 <strong>Probabilidade estimada:</strong>
 
-                ${acuraciaFormatada}%
+                ${probabilidade.toFixed(2)}%
 
             </div>
 
@@ -1045,6 +1084,27 @@ function analisarAluno() {
     }
 
 }
+
+
+/* =========================================
+   PERMITIR ANALISAR COM ENTER
+   ========================================= */
+
+document
+    .getElementById("codigo")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                analisarAluno();
+
+            }
+
+        }
+    );
+
 
 </script>
 
