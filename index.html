@@ -50,45 +50,59 @@
 
         h1 {
             margin: 8px 0;
+
             color: #173b67;
+
             font-size: 30px;
         }
 
         .subtitulo {
             color: #64748b;
+
             line-height: 1.5;
+
             font-size: 15px;
         }
 
         .linha {
             border: none;
+
             border-top: 1px solid #e2e8f0;
+
             margin: 25px 0;
         }
 
         label {
             display: block;
+
             margin-top: 18px;
+
             margin-bottom: 7px;
+
             font-weight: bold;
+
             color: #1e293b;
         }
 
         input,
         select {
             width: 100%;
+
             padding: 13px;
 
             border: 1px solid #cbd5e1;
+
             border-radius: 9px;
 
             font-size: 16px;
+
             background: white;
         }
 
         input:focus,
         select:focus {
             outline: none;
+
             border-color: #2563eb;
         }
 
@@ -96,15 +110,19 @@
             width: 100%;
 
             margin-top: 28px;
+
             padding: 15px;
 
             border: none;
+
             border-radius: 9px;
 
             background: #2563eb;
+
             color: white;
 
             font-size: 17px;
+
             font-weight: bold;
 
             cursor: pointer;
@@ -118,78 +136,44 @@
             display: none;
 
             margin-top: 28px;
+
             padding: 22px;
 
             border-radius: 14px;
+
             line-height: 1.5;
         }
 
         .adequado {
             background: #dcfce7;
+
             border: 1px solid #86efac;
+
             color: #166534;
         }
 
         .baixo {
             background: #fee2e2;
+
             border: 1px solid #fca5a5;
+
             color: #991b1b;
         }
 
         .erro {
             background: #fef3c7;
+
             border: 1px solid #fcd34d;
+
             color: #92400e;
         }
 
         .resultado-titulo {
             font-size: 22px;
+
             font-weight: bold;
+
             margin-bottom: 12px;
-        }
-
-        .resultado-analise {
-            background: rgba(255,255,255,0.65);
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            margin-top: 15px;
-
-            color: #334155;
-        }
-
-        .resultado-analise p {
-            margin-bottom: 0;
-        }
-
-        .probabilidade {
-            margin-top: 15px;
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            background: white;
-
-            color: #1e293b;
-
-            font-size: 16px;
-
-            text-align: center;
-        }
-
-        .probabilidade-numero {
-            display: block;
-
-            font-size: 28px;
-
-            font-weight: bold;
-
-            margin-top: 5px;
-
-            color: #2563eb;
         }
 
         .dados {
@@ -210,8 +194,43 @@
             margin: 7px 0;
         }
 
+        .probabilidade {
+            margin-top: 18px;
+
+            padding: 15px;
+
+            background: rgba(255,255,255,0.8);
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            color: #334155;
+
+            text-align: center;
+        }
+
+        .acuracia {
+            margin-top: 20px;
+
+            padding: 15px;
+
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 10px;
+
+            color: #1e40af;
+
+            text-align: center;
+
+            font-size: 15px;
+        }
+
         .explicacao {
             margin-top: 18px;
+
             font-size: 14px;
         }
 
@@ -264,23 +283,16 @@
 <div class="container">
 
 
-    <!-- CABEÇALHO -->
-
     <div class="cabecalho">
 
-        <div class="icone">
-            📚
-        </div>
+        <div class="icone">📚</div>
 
-        <h1>
-            Desempenho Escolar
-        </h1>
+        <h1>Desempenho Escolar</h1>
 
         <p class="subtitulo">
 
-            Sistema preditivo para identificação
-            precoce de possível baixo desempenho
-            escolar.
+            Sistema preditivo para identificação precoce
+            de possível baixo desempenho escolar.
 
         </p>
 
@@ -290,16 +302,16 @@
     <hr class="linha">
 
 
-    <!-- NOME -->
+    <!-- CÓDIGO DO ALUNO -->
 
-    <label for="nome">
-        👤 Nome do aluno
+    <label for="codigo">
+        🔢 Código do aluno
     </label>
 
     <input
         type="text"
-        id="nome"
-        placeholder="Digite o nome do aluno"
+        id="codigo"
+        placeholder="Digite o código do aluno"
     >
 
 
@@ -311,10 +323,6 @@
 
     <select id="ano">
 
-        <option value="2022">2022</option>
-
-        <option value="2023">2023</option>
-
         <option value="2024">2024</option>
 
         <option value="2025">2025</option>
@@ -322,6 +330,10 @@
         <option value="2026" selected>
             2026
         </option>
+
+        <option value="2027">2027</option>
+
+        <option value="2028">2028</option>
 
     </select>
 
@@ -335,7 +347,7 @@
     <input
         type="number"
         id="frequencia"
-        min="0"
+        min="50"
         max="100"
         step="0.1"
         value="75"
@@ -345,9 +357,7 @@
     <!-- USO DE IA -->
 
     <label for="usoIA">
-
         🤖 O aluno utiliza Inteligência Artificial?
-
     </label>
 
     <select id="usoIA">
@@ -363,16 +373,12 @@
     </select>
 
 
-    <!-- BOTÃO -->
-
     <button onclick="analisarAluno()">
 
         🔎 ANALISAR ALUNO
 
     </button>
 
-
-    <!-- RESULTADO -->
 
     <div id="resultado"></div>
 
@@ -391,7 +397,19 @@
     </div>
 
 
-    <!-- AVISO -->
+    <!-- ACURÁCIA -->
+
+    <div class="acuracia">
+
+        📊 <strong>Acurácia do modelo: 96,80%</strong>
+
+        <br>
+
+        O modelo apresentou 96,80% de acerto
+        nos dados de teste.
+
+    </div>
+
 
     <p class="aviso">
 
@@ -401,8 +419,6 @@
 
     </p>
 
-
-    <!-- RODAPÉ -->
 
     <div class="rodape">
 
@@ -417,226 +433,280 @@
 <script>
 
 
-/* =====================================================
+/* =========================================
    MODELO DA ÁRVORE DE DECISÃO
-   ===================================================== */
+   Acurácia: 96.80%
+   ========================================= */
 
 
 const scalerMean = [
-
-    2025.990875,
-    75.164625,
-    0.298125
-
+    2025.995625,
+    77.907375,
+    0.302125
 ];
 
 
 const scalerScale = [
-
-    1.416259769383781,
-    11.583092143696993,
-    0.45743467771366
-
+    1.4228864534371672,
+    9.967787899497813,
+    0.45917914192066694
 ];
 
 
 const treeFeature = [
-
-    2, 1, 1, 1, -2, -2,
-
-    1, -2, -2,
-
-    1, 1, -2, -2,
-
-    0, -2, -2,
-
-    1, 1, 1, -2, -2,
-
-    1, -2, -2,
-
-    1, 0, -2, -2,
-
-    1, -2, -2
-
+    1, 2, 0, 1, 0, 1, -2, -2, 1, -2, -2, 0, 0, -2, -2, -2,
+    1, 1, 1, -2, -2, 0, -2, -2, 1, 0, -2, -2, 0, -2, -2,
+    1, 0, 0, -2, 1, -2, -2, 1, -2, -2, 1, 0, -2, 0, -2, -2,
+    1, 0, -2, -2, -2, 1, 0, 2, 1, 1, -2, -2, 1, -2, -2,
+    -2, 0, 2, 1, -2, -2, -2, 1, 0, -2, -2, 0, -2, -2,
+    1, 0, 2, 1, -2, -2, -2, -2, 1, 0, 2, -2, -2, -2, -2
 ];
 
 
 const treeThreshold = [
-
-    0.44131985306739807,
-    0.3742847740650177,
-    -0.8343735039234161,
-    -1.8703662753105164,
-    -2,
-    -2,
-    -0.05737889185547829,
-    -2,
-    -2,
-    1.3239448070526123,
-    0.8922811448574066,
-    -2,
-    -2,
-    0.35948559804819524,
-    -2,
-    -2,
-    -0.4890425503253937,
-    -1.438702642917633,
-    -1.7840335369110107,
-    -2,
-    -2,
-    -0.8343735039234161,
-    -2,
-    -2,
-    0.5469502508640289,
-    1.065570741891861,
-    -2,
-    -2,
-    1.5829430222511292,
-    -2,
-    -2
-
+    -0.7431312799453735,
+    0.43093201518058777,
+    0.3544731291476637,
+    -0.8434544503688812,
+    -0.3483236578758806,
+    -0.9437775909900665,
+    -2.0,
+    -2.0,
+    -1.1444239616394043,
+    -2.0,
+    -2.0,
+    -0.3483236578758806,
+    -1.051120400428772,
+    -2.0,
+    -2.0,
+    -2.0,
+    -1.2447471022605896,
+    -1.445393443107605,
+    -1.7463629245758057,
+    -2.0,
+    -2.0,
+    1.0572699010372162,
+    -2.0,
+    -2.0,
+    -1.0441007614135742,
+    1.0572699010372162,
+    -2.0,
+    -2.0,
+    1.057269981891861,
+    -2.0,
+    -2.0,
+    -1.9470092058181763,
+    0.3544731291476637,
+    -0.3483236578758806,
+    -2.0,
+    -2.298140287399292,
+    -2.0,
+    -2.0,
+    -2.5991097688674927,
+    -2.0,
+    -2.0,
+    -1.846686065196991,
+    -1.051120400428772,
+    -2.0,
+    -0.3483236578758806,
+    -2.0,
+    -2.0,
+    -1.5457165837287903,
+    -1.051120400428772,
+    -2.0,
+    -2.0,
+    -2.0,
+    -0.34183864295482635,
+    -1.051120400428772,
+    0.43093201518058777,
+    -0.5424849539995193,
+    -0.6428081095218658,
+    -2.0,
+    -2.0,
+    -0.44216179847717285,
+    -2.0,
+    -2.0,
+    -2.0,
+    -0.3483236578758806,
+    0.43093201518058777,
+    -0.5424849539995193,
+    -2.0,
+    -2.0,
+    -2.0,
+    -0.6428081095218658,
+    0.3544731291476637,
+    -2.0,
+    -2.0,
+    0.3544731291476637,
+    -2.0,
+    -2.0,
+    -0.0408691493794322,
+    -1.051120400428772,
+    0.43093201518058777,
+    -0.24151547253131866,
+    -2.0,
+    -2.0,
+    -2.0,
+    -2.0,
+    0.05945401359349489,
+    -1.051120400428772,
+    0.43093201518058777,
+    -2.0,
+    -2.0,
+    -2.0,
+    -2.0
 ];
 
 
 const treeLeft = [
-
-    1, 2, 3, 4, -1, -1,
-
-    7, -1, -1,
-
-    10, 11, -1, -1,
-
-    14, -1, -1,
-
-    17, 18, 19, -1, -1,
-
-    22, -1, -1,
-
-    25, 26, -1, -1,
-
-    29, -1, -1
-
+    1, 2, 3, 4, 5, 6, -1, -1, 9, -1, -1,
+    12, 13, -1, -1, -1, 17, 18, 19, -1, -1,
+    22, -1, -1, 25, 26, -1, -1, 29, -1, -1,
+    32, 33, 34, -1, 36, -1, -1, 39, -1, -1,
+    42, 43, -1, 45, -1, -1, 48, 49, -1, -1,
+    -1, 53, 54, 55, 56, 57, -1, -1, 60, -1,
+    -1, -1, 64, 65, 66, -1, -1, -1, 70, 71,
+    -1, -1, 74, -1, -1, 77, 78, 79, 80, -1,
+    -1, -1, -1, 85, 86, 87, -1, -1, -1, -1
 ];
 
 
 const treeRight = [
-
-    16, 9, 6, 5, -1, -1,
-
-    8, -1, -1,
-
-    13, 12, -1, -1,
-
-    15, -1, -1,
-
-    24, 21, 20, -1, -1,
-
-    23, -1, -1,
-
-    28, 27, -1, -1,
-
-    30, -1, -1
-
+    52, 31, 16, 11, 8, 7, -1, -1, 10, -1, -1,
+    15, 14, -1, -1, -1, 24, 21, 20, -1, -1,
+    23, -1, -1, 28, 27, -1, -1, 30, -1, -1,
+    41, 38, 35, -1, 37, -1, -1, 40, -1, -1,
+    47, 44, -1, 46, -1, -1, 51, 50, -1, -1,
+    -1, 76, 63, 62, 59, 58, -1, -1, 61, -1,
+    -1, -1, 69, 68, 67, -1, -1, -1, 73, 72,
+    -1, -1, 75, -1, -1, 84, 83, 82, 81, -1,
+    -1, -1, -1, -1, 90, 89, 88, -1, -1, -1, -1
 ];
 
 
 const treeValue = [
-
-    [[0.518375,0.481625]],
-
-    [[0.3941228851291184,0.6058771148708816]],
-
-    [[0.3069664168748265,0.693033583125173]],
-
-    [[0.21403812824956672,0.7859618717504333]],
-
-    [[0.145,0.855]],
-
-    [[0.22851153039832284,0.7714884696016772]],
-
-    [[0.35075541037158026,0.6492445896284198]],
-
-    [[0.3235677083333333,0.6764322916666666]],
-
-    [[0.3964950711938664,0.6035049288061336]],
-
-    [[0.5501988071570576,0.44980119284294234]],
-
-    [[0.5017253278122843,0.49827467218771565]],
-
-    [[0.4822771213748657,0.5177228786251342]],
-
-    [[0.5366795366795367,0.46332046332046334]],
-
-    [[0.6749555950266429,0.325044404973357]],
-
-    [[0.6528117359413202,0.3471882640586797]],
-
-    [[0.7337662337662337,0.2662337662337662]],
-
-    [[0.8109014675052411,0.18909853249475891]],
-
-    [[0.6956521739130435,0.30434782608695654]],
-
-    [[0.6195121951219512,0.3804878048780488]],
-
-    [[0.6732673267326735,0.32673267326732675]],
-
-    [[0.5673076923076923,0.4326923076923077]],
-
-    [[0.723826714801444,0.27617328519855594]],
-
-    [[0.749185667752443,0.250814332247557]],
-
-    [[0.6923076923076923,0.3076923076923077]],
-
-    [[0.8646986469864698,0.13530135301353013]],
-
-    [[0.8133187772925764,0.18668122270742357]],
-
-    [[0.8036912751677853,0.19630872483221476]],
-
-    [[0.83125,0.16875]],
-
-    [[0.9309859154929577,0.06901408450704226]],
-
-    [[0.9173989455184535,0.08260105448154657]],
-
-    [[0.9858156028368794,0.014184397163120567]]
-
+    [[0.8385, 0.1615]],
+    [[0.42396061269146607, 0.5760393873085339]],
+    [[0.21423047177107502, 0.785769528228925]],
+    [[0.06327543424317618, 0.9367245657568238]],
+    [[0.031029619181946404, 0.9689703808180536]],
+    [[0.00411522633744856, 0.9958847736625515]],
+    [[0.0, 1.0]],
+    [[0.029850746268656716, 0.9701492537313433]],
+    [[0.08968609865470852, 0.9103139013452914]],
+    [[0.007575757575757576, 0.9924242424242424]],
+    [[0.2087912087912088, 0.7912087912087912]],
+    [[0.29896907216494845, 0.7010309278350515]],
+    [[0.1111111111111111, 0.8888888888888888]],
+    [[0.0, 1.0]],
+    [[0.2413793103448276, 0.7586206896551724]],
+    [[0.6470588235294118, 0.35294117647058826]],
+    [[0.46406570841889117, 0.5359342915811088]],
+    [[0.11570247933884298, 0.8842975206611571]],
+    [[0.027777777777777776, 0.9722222222222222]],
+    [[0.0, 1.0]],
+    [[0.0625, 0.9375]],
+    [[0.3709677419354839, 0.6290322580645161]],
+    [[0.1875, 0.8125]],
+    [[0.5666666666666667, 0.43333333333333335]],
+    [[0.8081632653061225, 0.19183673469387755]],
+    [[0.5952380952380952, 0.40476190476190477]],
+    [[0.4146341463414634, 0.5853658536585366]],
+    [[0.7674418604651163, 0.23255813953488372]],
+    [[0.9192546583850931, 0.08074534161490683]],
+    [[0.8059701492537313, 0.19402985074626866]],
+    [[1.0, 0.0]],
+    [[0.930841121495327, 0.0691588785046729]],
+    [[0.4918032786885246, 0.5081967213114754]],
+    [[0.14705882352941177, 0.8529411764705882]],
+    [[0.0, 1.0]],
+    [[0.45454545454545453, 0.5454545454545454]],
+    [[0.0, 1.0]],
+    [[0.8333333333333334, 0.16666666666666666]],
+    [[0.9259259259259259, 0.07407407407407407]],
+    [[0.0, 1.0]],
+    [[1.0, 0.0]],
+    [[0.9873417721518988, 0.012658227848101266]],
+    [[0.8235294117647058, 0.17647058823529413]],
+    [[0.0, 1.0]],
+    [[0.9333333333333333, 0.06666666666666667]],
+    [[0.8571428571428571, 0.14285714285714285]],
+    [[1.0, 0.0]],
+    [[0.9934354485776805, 0.006564551422319475]],
+    [[0.9629629629629629, 0.037037037037037035]],
+    [[0.85, 0.15]],
+    [[1.0, 0.0]],
+    [[1.0, 0.0]],
+    [[0.9612767336357745, 0.03872326636422554]],
+    [[0.8054768649669499, 0.19452313503305005]],
+    [[0.357487922705314, 0.642512077294686]],
+    [[0.13071895424836602, 0.869281045751634]],
+    [[0.05970149253731343, 0.9402985074626866]],
+    [[0.06060606060606061, 0.9393939393939394]],
+    [[0.058823529411764705, 0.9411764705882353]],
+    [[0.18604651162790697, 0.813953488372093]],
+    [[0.15789473684210525, 0.8421052631578947]],
+    [[0.20833333333333334, 0.7916666666666666]],
+    [[1.0, 0.0]],
+    [[0.9143192488262911, 0.08568075117370892]],
+    [[0.75, 0.25]],
+    [[0.6381578947368421, 0.3618421052631579]],
+    [[0.4117647058823529, 0.5882352941176471]],
+    [[0.8214285714285714, 0.17857142857142857]],
+    [[1.0, 0.0]],
+    [[0.9715189873417721, 0.028481012658227847]],
+    [[0.9182389937106918, 0.08176100628930817]],
+    [[0.8333333333333334, 0.16666666666666666]],
+    [[0.9696969696969697, 0.030303030303030304]],
+    [[0.9894291754756871, 0.010570824324312896]],
+    [[0.9754601226993865, 0.024539877300613498]],
+    [[0.9967741935483871, 0.0032258064516129032]],
+    [[0.9935458634852338, 0.006454136514766282]],
+    [[0.9659936238044633, 0.03400637619553666]],
+    [[0.8423645320197044, 0.15763546798029557]],
+    [[0.7647058823529411, 0.23529411764705882]],
+    [[0.7333333333333333, 0.26666666666666666]],
+    [[0.7802197802197802, 0.21978021978021978]],
+    [[1.0, 0.0]],
+    [[1.0, 0.0]],
+    [[0.9997603068072867, 0.00023969319271332693]],
+    [[0.9971509971509972, 0.002849002849002849]],
+    [[0.9811320754716981, 0.018867924528301886]],
+    [[0.9722222222222222, 0.027777777777777776]],
+    [[1.0, 0.0]],
+    [[1.0, 0.0]],
+    [[1.0, 0.0]]
 ];
 
 
-/* =====================================================
+const acuraciaModelo = 0.9680;
+
+const featureNames = [
+    "ano",
+    "frequencia",
+    "uso_ia"
+];
+
+
+/* =========================================
    FUNÇÃO DA ÁRVORE
-   ===================================================== */
+   ========================================= */
 
 
-function preverDesempenho(
-    ano,
-    frequencia,
-    usoIA
-) {
-
+function preverDesempenho(ano, frequencia, usoIA) {
 
     const entrada = [
-
         ano,
         frequencia,
         usoIA
-
     ];
 
 
-    const entradaPadronizada =
-        entrada.map(
-
-            (valor, i) =>
-
-                (valor - scalerMean[i])
-                / scalerScale[i]
-
-        );
+    const entradaPadronizada = entrada.map(
+        (valor, i) =>
+            (valor - scalerMean[i]) /
+            scalerScale[i]
+    );
 
 
     let no = 0;
@@ -644,10 +714,8 @@ function preverDesempenho(
 
     while (treeLeft[no] !== -1) {
 
-
         const feature =
             treeFeature[no];
-
 
         const threshold =
             treeThreshold[no];
@@ -673,38 +741,39 @@ function preverDesempenho(
         treeValue[no][0];
 
 
+    const probabilidadeBaixo =
+        valores[1];
+
+    const probabilidadeAdequado =
+        valores[0];
+
+
     const classe =
-        valores[1] > valores[0]
+        probabilidadeBaixo > probabilidadeAdequado
         ? 1
         : 0;
 
 
-    const probabilidade =
-        valores[classe] * 100;
-
-
     return {
-
         classe: classe,
-
-        probabilidade: probabilidade
-
+        probabilidadeBaixo: probabilidadeBaixo,
+        probabilidadeAdequado: probabilidadeAdequado
     };
 
 }
 
 
-/* =====================================================
+/* =========================================
    ANÁLISE DO ALUNO
-   ===================================================== */
+   ========================================= */
 
 
 function analisarAluno() {
 
 
-    const nome =
+    const codigo =
         document
-        .getElementById("nome")
+        .getElementById("codigo")
         .value
         .trim();
 
@@ -738,12 +807,9 @@ function analisarAluno() {
         .getElementById("resultado");
 
 
-    /* ================================================
-       VALIDAÇÃO DO NOME
-       ================================================ */
+    /* VALIDAR CÓDIGO */
 
-
-    if (nome === "") {
+    if (codigo === "") {
 
         resultado.style.display = "block";
 
@@ -753,11 +819,11 @@ function analisarAluno() {
 
             <div class="resultado-titulo">
 
-                ⚠️ Informe o nome do aluno
+                ⚠️ Informe o código do aluno
 
             </div>
 
-            Digite o nome antes de realizar
+            Digite o código antes de realizar
             a análise.
 
         `;
@@ -767,14 +833,11 @@ function analisarAluno() {
     }
 
 
-    /* ================================================
-       VALIDAÇÃO DA FREQUÊNCIA
-       ================================================ */
-
+    /* VALIDAR FREQUÊNCIA */
 
     if (
         isNaN(frequencia) ||
-        frequencia < 0 ||
+        frequencia < 50 ||
         frequencia > 100
     ) {
 
@@ -790,7 +853,7 @@ function analisarAluno() {
 
             </div>
 
-            Informe um valor entre 0% e 100%.
+            Informe um valor entre 50% e 100%.
 
         `;
 
@@ -799,95 +862,7 @@ function analisarAluno() {
     }
 
 
-    /* ================================================
-       REGRA DE SEGURANÇA PARA 0%
-       ================================================ */
-
-    if (frequencia === 0) {
-
-        resultado.style.display = "block";
-
-        resultado.className = "baixo";
-
-        resultado.innerHTML = `
-
-            <div class="resultado-titulo">
-
-                ⚠️ Possível baixo desempenho
-
-            </div>
-
-
-            <div class="resultado-analise">
-
-                📌 <strong>
-                    Resultado da análise
-                </strong>
-
-                <p>
-
-                    O aluno apresentou
-                    <strong>0% de frequência</strong>.
-                    Esse indicador requer atenção e
-                    acompanhamento pedagógico.
-
-                </p>
-
-            </div>
-
-
-            <div class="dados">
-
-                <strong>
-                    📊 Dados analisados
-                </strong>
-
-
-                <div>
-                    👤 Aluno: ${nome}
-                </div>
-
-
-                <div>
-                    📅 Ano letivo: ${ano}
-                </div>
-
-
-                <div>
-                    📈 Frequência: ${frequencia}%
-                </div>
-
-
-                <div>
-                    🤖 Uso de IA:
-                    ${usoIA === 1 ? "Sim" : "Não"}
-                </div>
-
-            </div>
-
-
-            <div class="explicacao">
-
-                💡 <strong>Orientação:</strong>
-
-                frequência igual a 0% indica ausência
-                total no período informado. Recomenda-se
-                verificar a situação do aluno e realizar
-                acompanhamento pedagógico.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    /* ================================================
-       EXECUTA O MODELO
-       ================================================ */
-
+    /* EXECUTAR MODELO */
 
     const previsao =
         preverDesempenho(
@@ -902,15 +877,21 @@ function analisarAluno() {
 
 
     const probabilidade =
-        previsao.probabilidade.toFixed(1);
+        classe === 1
+        ? previsao.probabilidadeBaixo
+        : previsao.probabilidadeAdequado;
+
+
+    const porcentagem =
+        (probabilidade * 100).toFixed(1);
 
 
     resultado.style.display = "block";
 
 
-    /* ================================================
-       POSSÍVEL BAIXO DESEMPENHO
-       ================================================ */
+    /* =========================================
+       BAIXO DESEMPENHO
+       ========================================= */
 
 
     if (classe === 1) {
@@ -928,40 +909,13 @@ function analisarAluno() {
             </div>
 
 
-            <div class="resultado-analise">
+            <p>
 
-                📌 <strong>
-                    Resultado da análise
-                </strong>
+                O modelo identificou características
+                associadas à classe de possível
+                baixo desempenho.
 
-                <p>
-
-                    O aluno apresentou frequência
-                    de <strong>${frequencia}%</strong>,
-                    e o modelo classificou os dados
-                    informados como
-                    <strong>
-                        possível baixo desempenho
-                    </strong>.
-
-                </p>
-
-            </div>
-
-
-            <div class="probabilidade">
-
-                📊 <strong>
-                    Probabilidade estimada
-                </strong>
-
-                <span class="probabilidade-numero">
-
-                    ${probabilidade}%
-
-                </span>
-
-            </div>
+            </p>
 
 
             <div class="dados">
@@ -970,21 +924,17 @@ function analisarAluno() {
                     📊 Dados analisados
                 </strong>
 
-
                 <div>
-                    👤 Aluno: ${nome}
+                    🔢 Código do aluno: ${codigo}
                 </div>
-
 
                 <div>
                     📅 Ano letivo: ${ano}
                 </div>
 
-
                 <div>
                     📈 Frequência: ${frequencia}%
                 </div>
-
 
                 <div>
                     🤖 Uso de IA:
@@ -994,28 +944,54 @@ function analisarAluno() {
             </div>
 
 
+            <div class="probabilidade">
+
+                📊 <strong>Probabilidade estimada:</strong>
+
+                <br>
+
+                ${porcentagem}%
+
+            </div>
+
+
+            <div class="explicacao">
+
+                💡 <strong>Resultado da análise:</strong>
+
+                os dados informados foram classificados
+                pelo modelo como possível baixo desempenho.
+
+            </div>
+
+
             <div class="explicacao">
 
                 💡 <strong>Orientação:</strong>
 
-                recomenda-se acompanhamento
-                pedagógico e observação do
-                desenvolvimento do aluno.
+                recomenda-se acompanhamento pedagógico
+                e observação do desenvolvimento do aluno.
+
+            </div>
+
+
+            <div class="acuracia">
+
+                🎯 <strong>Acurácia do modelo:</strong>
+
+                96,80%
 
             </div>
 
         `;
 
 
-    }
+    } else {
 
 
-    /* ================================================
-       DESEMPENHO ADEQUADO
-       ================================================ */
-
-
-    else {
+        /* =========================================
+           DESEMPENHO ADEQUADO
+           ========================================= */
 
 
         resultado.className = "adequado";
@@ -1030,40 +1006,13 @@ function analisarAluno() {
             </div>
 
 
-            <div class="resultado-analise">
+            <p>
 
-                📌 <strong>
-                    Resultado da análise
-                </strong>
+                Não foram identificadas, nesta análise
+                inicial, características associadas
+                ao baixo desempenho.
 
-                <p>
-
-                    O aluno apresentou frequência
-                    de <strong>${frequencia}%</strong>,
-                    e o modelo classificou os dados
-                    informados como
-                    <strong>
-                        desempenho adequado
-                    </strong>.
-
-                </p>
-
-            </div>
-
-
-            <div class="probabilidade">
-
-                📊 <strong>
-                    Probabilidade estimada
-                </strong>
-
-                <span class="probabilidade-numero">
-
-                    ${probabilidade}%
-
-                </span>
-
-            </div>
+            </p>
 
 
             <div class="dados">
@@ -1072,26 +1021,43 @@ function analisarAluno() {
                     📊 Dados analisados
                 </strong>
 
-
                 <div>
-                    👤 Aluno: ${nome}
+                    🔢 Código do aluno: ${codigo}
                 </div>
-
 
                 <div>
                     📅 Ano letivo: ${ano}
                 </div>
 
-
                 <div>
                     📈 Frequência: ${frequencia}%
                 </div>
-
 
                 <div>
                     🤖 Uso de IA:
                     ${usoIA === 1 ? "Sim" : "Não"}
                 </div>
+
+            </div>
+
+
+            <div class="probabilidade">
+
+                📊 <strong>Probabilidade estimada:</strong>
+
+                <br>
+
+                ${porcentagem}%
+
+            </div>
+
+
+            <div class="explicacao">
+
+                💡 <strong>Resultado da análise:</strong>
+
+                os dados informados foram classificados
+                pelo modelo como desempenho adequado.
 
             </div>
 
@@ -1106,11 +1072,21 @@ function analisarAluno() {
 
             </div>
 
+
+            <div class="acuracia">
+
+                🎯 <strong>Acurácia do modelo:</strong>
+
+                96,80%
+
+            </div>
+
         `;
 
     }
 
 }
+
 
 </script>
 
