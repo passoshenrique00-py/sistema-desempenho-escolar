@@ -210,6 +210,84 @@
             font-size: 14px;
         }
 
+        /* =====================================================
+           DISTRIBUIÇÃO DAS PROBABILIDADES
+           ===================================================== */
+
+        .probabilidades {
+            margin-top: 20px;
+
+            padding: 16px;
+
+            background: rgba(255,255,255,0.75);
+
+            border-radius: 10px;
+
+            color: #334155;
+
+            font-size: 14px;
+        }
+
+        .probabilidades-titulo {
+            font-weight: bold;
+
+            margin-bottom: 12px;
+
+            font-size: 15px;
+        }
+
+        .probabilidade-linha {
+            margin: 9px 0;
+
+            font-weight: bold;
+        }
+
+        .barra-container {
+            width: 100%;
+
+            height: 10px;
+
+            background: #e2e8f0;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            margin-top: 5px;
+        }
+
+        .barra-adequado {
+            height: 100%;
+
+            background: #22c55e;
+
+            border-radius: 10px;
+        }
+
+        .barra-baixo {
+            height: 100%;
+
+            background: #ef4444;
+
+            border-radius: 10px;
+        }
+
+        .explicacao-probabilidade {
+            margin-top: 14px;
+
+            padding: 12px;
+
+            background: #f8fafc;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            color: #475569;
+        }
+
         .modelo {
             margin-top: 20px;
 
@@ -351,7 +429,7 @@
 
 
 <!-- ========================================================
-     NOVO MODELO DE ÁRVORE
+     MODELO DE ÁRVORE
      ======================================================== -->
 
 <script src="modelo_arvore_novo.js"></script>
@@ -591,6 +669,18 @@ function analisarAluno() {
         previsao.probabilidade * 100;
 
 
+    /* --------------------------------------------------------
+       PEGAR AS DUAS PROBABILIDADES
+       -------------------------------------------------------- */
+
+    const probabilidadeAdequado =
+        previsao.probabilidadeAdequado * 100;
+
+
+    const probabilidadeBaixo =
+        previsao.probabilidadeBaixo * 100;
+
+
     resultado.style.display = "block";
 
 
@@ -678,6 +768,68 @@ function analisarAluno() {
                 📊 <strong>Probabilidade estimada:</strong>
 
                 ${probabilidade.toFixed(2)}%
+
+            </div>
+
+
+            <div class="probabilidades">
+
+                <div class="probabilidades-titulo">
+
+                    📊 Distribuição na folha da árvore
+
+                </div>
+
+
+                <div class="probabilidade-linha">
+
+                    🟢 Desempenho adequado:
+                    ${probabilidadeAdequado.toFixed(2)}%
+
+                    <div class="barra-container">
+
+                        <div
+                            class="barra-adequado"
+                            style="width: ${probabilidadeAdequado}%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="probabilidade-linha">
+
+                    🔴 Possível baixo desempenho:
+                    ${probabilidadeBaixo.toFixed(2)}%
+
+                    <div class="barra-container">
+
+                        <div
+                            class="barra-baixo"
+                            style="width: ${probabilidadeBaixo}%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="explicacao-probabilidade">
+
+                    💡 <strong>Como interpretar:</strong>
+
+                    essas porcentagens representam a
+                    distribuição das duas classes entre
+                    os exemplos de treinamento que chegaram
+                    à mesma folha da árvore.
+
+                    <br><br>
+
+                    Elas não representam a acurácia geral
+                    do modelo.
+
+                </div>
 
             </div>
 
@@ -781,6 +933,68 @@ function analisarAluno() {
                 📊 <strong>Probabilidade estimada:</strong>
 
                 ${probabilidade.toFixed(2)}%
+
+            </div>
+
+
+            <div class="probabilidades">
+
+                <div class="probabilidades-titulo">
+
+                    📊 Distribuição na folha da árvore
+
+                </div>
+
+
+                <div class="probabilidade-linha">
+
+                    🟢 Desempenho adequado:
+                    ${probabilidadeAdequado.toFixed(2)}%
+
+                    <div class="barra-container">
+
+                        <div
+                            class="barra-adequado"
+                            style="width: ${probabilidadeAdequado}%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="probabilidade-linha">
+
+                    🔴 Possível baixo desempenho:
+                    ${probabilidadeBaixo.toFixed(2)}%
+
+                    <div class="barra-container">
+
+                        <div
+                            class="barra-baixo"
+                            style="width: ${probabilidadeBaixo}%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="explicacao-probabilidade">
+
+                    💡 <strong>Como interpretar:</strong>
+
+                    essas porcentagens representam a
+                    distribuição das duas classes entre
+                    os exemplos de treinamento que chegaram
+                    à mesma folha da árvore.
+
+                    <br><br>
+
+                    Elas não representam a acurácia geral
+                    do modelo.
+
+                </div>
 
             </div>
 
