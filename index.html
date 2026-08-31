@@ -20,229 +20,427 @@
 
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f1f5f9;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef4ff 0%,
+                    #f8fafc 50%,
+                    #eef6ff 100%
+                );
+
             min-height: 100vh;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
-            padding: 20px;
+            padding: 25px;
         }
 
-        .container {
-            width: 100%;
-            max-width: 560px;
 
-            background: white;
+        /* =====================================================
+           CONTAINER PRINCIPAL
+           ===================================================== */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 600px;
+
+            background: #ffffff;
 
             padding: 35px;
 
-            border-radius: 20px;
+            border-radius: 22px;
 
             box-shadow:
-                0 12px 35px
-                rgba(0,0,0,0.12);
+                0 15px 45px
+                rgba(15, 23, 42, 0.12);
+
         }
+
+
+        /* =====================================================
+           CABEÇALHO
+           ===================================================== */
 
         .cabecalho {
+
             text-align: center;
-            margin-bottom: 25px;
+
+            margin-bottom: 28px;
+
         }
+
 
         .icone {
-            font-size: 45px;
+
+            width: 76px;
+
+            height: 76px;
+
+            margin:
+                0 auto 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #eff6ff;
+
+            border-radius: 20px;
+
+            font-size: 40px;
+
         }
 
+
         h1 {
-            margin: 8px 0;
+
+            margin: 0;
 
             color: #173b67;
 
-            font-size: 30px;
+            font-size: 29px;
+
         }
+
 
         .subtitulo {
+
             color: #64748b;
 
-            line-height: 1.5;
+            line-height: 1.6;
 
             font-size: 15px;
+
+            margin:
+                10px auto 0;
+
+            max-width: 470px;
+
         }
 
+
         .linha {
+
             border: none;
 
             border-top:
                 1px solid #e2e8f0;
 
-            margin: 25px 0;
+            margin:
+                25px 0;
+
         }
 
+
+        /* =====================================================
+           FORMULÁRIO
+           ===================================================== */
+
         label {
+
             display: block;
 
             margin-top: 18px;
-            margin-bottom: 7px;
+
+            margin-bottom: 8px;
 
             font-weight: bold;
 
             color: #1e293b;
+
+            font-size: 15px;
+
         }
 
+
         input {
+
             width: 100%;
 
-            padding: 13px;
+            padding: 14px;
 
             border:
                 1px solid #cbd5e1;
 
-            border-radius: 9px;
+            border-radius: 10px;
 
             font-size: 16px;
 
-            background: white;
+            background: #ffffff;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+
         }
 
+
         input:focus {
+
             outline: none;
 
             border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37, 99, 235, 0.12);
+
         }
 
+
         button {
+
             width: 100%;
 
-            margin-top: 28px;
+            margin-top: 22px;
 
             padding: 15px;
 
             border: none;
 
-            border-radius: 9px;
+            border-radius: 10px;
 
             background: #2563eb;
 
             color: white;
 
-            font-size: 17px;
+            font-size: 16px;
 
             font-weight: bold;
 
             cursor: pointer;
+
+            transition:
+                background 0.2s,
+                transform 0.1s;
+
         }
+
 
         button:hover {
+
             background: #1d4ed8;
+
         }
 
+
+        button:active {
+
+            transform: scale(0.99);
+
+        }
+
+
+        /* =====================================================
+           RESULTADO
+           ===================================================== */
+
         #resultado {
+
             display: none;
 
             margin-top: 28px;
 
             padding: 22px;
 
-            border-radius: 14px;
+            border-radius: 15px;
 
-            line-height: 1.5;
+            line-height: 1.55;
+
         }
 
+
         .adequado {
-            background: #dcfce7;
+
+            background: #f0fdf4;
 
             border:
                 1px solid #86efac;
 
             color: #166534;
+
         }
 
+
         .baixo {
-            background: #fee2e2;
+
+            background: #fff7f7;
 
             border:
                 1px solid #fca5a5;
 
             color: #991b1b;
+
         }
 
+
         .erro {
-            background: #fef3c7;
+
+            background: #fffbeb;
 
             border:
                 1px solid #fcd34d;
 
             color: #92400e;
+
         }
 
+
+        .carregando {
+
+            background: #eff6ff;
+
+            border:
+                1px solid #93c5fd;
+
+            color: #1e40af;
+
+        }
+
+
         .resultado-titulo {
+
             font-size: 22px;
 
             font-weight: bold;
 
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+
         }
 
-        .dados {
-            background:
-                rgba(255,255,255,0.75);
-
-            color: #334155;
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            margin-top: 18px;
-
-            font-size: 14px;
-        }
-
-        .dados div {
-            margin: 7px 0;
-        }
-
-        .explicacao {
-            margin-top: 18px;
-
-            font-size: 14px;
-        }
 
         /* =====================================================
-           DISTRIBUIÇÃO DAS PROBABILIDADES
+           DADOS ANALISADOS
            ===================================================== */
 
-        .probabilidades {
-            margin-top: 20px;
+        .dados {
+
+            background:
+                rgba(255,255,255,0.82);
+
+            color: #334155;
 
             padding: 16px;
 
-            background: rgba(255,255,255,0.75);
+            border-radius: 11px;
 
-            border-radius: 10px;
+            margin-top: 18px;
+
+            font-size: 14px;
+
+            border:
+                1px solid
+                rgba(203,213,225,0.7);
+
+        }
+
+
+        .dados-titulo {
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+
+            color: #1e293b;
+
+        }
+
+
+        .dados div {
+
+            margin: 7px 0;
+
+        }
+
+
+        /* =====================================================
+           EXPLICAÇÃO
+           ===================================================== */
+
+        .explicacao {
+
+            margin-top: 18px;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           PROBABILIDADES
+           ===================================================== */
+
+        .probabilidades {
+
+            margin-top: 20px;
+
+            padding: 17px;
+
+            background:
+                rgba(255,255,255,0.9);
+
+            border-radius: 12px;
 
             color: #334155;
 
             font-size: 14px;
+
+            border:
+                1px solid #e2e8f0;
+
         }
+
 
         .probabilidades-titulo {
+
             font-weight: bold;
 
-            margin-bottom: 12px;
+            margin-bottom: 15px;
 
             font-size: 15px;
+
+            color: #1e293b;
+
         }
+
 
         .probabilidade-linha {
-            margin: 9px 0;
+
+            margin:
+                13px 0 17px;
 
             font-weight: bold;
+
+            color: #334155;
+
         }
 
+
+        .valor-probabilidade {
+
+            float: right;
+
+            font-weight: bold;
+
+        }
+
+
         .barra-container {
+
             width: 100%;
 
             height: 10px;
@@ -253,58 +451,103 @@
 
             overflow: hidden;
 
-            margin-top: 5px;
+            margin-top: 7px;
+
         }
 
+
         .barra-adequado {
+
             height: 100%;
 
             background: #22c55e;
 
             border-radius: 10px;
+
         }
 
+
         .barra-baixo {
+
             height: 100%;
 
             background: #ef4444;
 
             border-radius: 10px;
+
         }
 
-        .explicacao-probabilidade {
-            margin-top: 14px;
 
-            padding: 12px;
+        .explicacao-probabilidade {
+
+            margin-top: 15px;
+
+            padding: 13px;
 
             background: #f8fafc;
 
-            border-radius: 8px;
+            border-radius: 9px;
 
             font-size: 13px;
 
-            line-height: 1.5;
+            line-height: 1.55;
 
             color: #475569;
+
         }
 
-        .modelo {
-            margin-top: 20px;
 
-            padding: 15px;
+        /* =====================================================
+           MODELO
+           ===================================================== */
+
+        .modelo {
+
+            margin-top: 24px;
+
+            padding: 18px;
 
             background: #eff6ff;
 
-            border-radius: 10px;
+            border:
+                1px solid #bfdbfe;
+
+            border-radius: 12px;
 
             color: #1e40af;
 
             font-size: 14px;
 
             text-align: center;
+
+            line-height: 1.5;
+
         }
 
+
+        .acuracia {
+
+            display: inline-block;
+
+            margin-top: 7px;
+
+            padding: 7px 12px;
+
+            background: #ffffff;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =====================================================
+           AVISO
+           ===================================================== */
+
         .aviso {
+
             margin-top: 20px;
 
             color: #64748b;
@@ -314,25 +557,75 @@
             text-align: center;
 
             line-height: 1.5;
+
         }
 
+
+        /* =====================================================
+           RODAPÉ
+           ===================================================== */
+
         .rodape {
+
             margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid #e2e8f0;
 
             text-align: center;
 
             color: #94a3b8;
 
             font-size: 12px;
+
         }
 
-        .carregando {
-            background: #eff6ff;
 
-            border:
-                1px solid #93c5fd;
+        /* =====================================================
+           RESPONSIVIDADE
+           ===================================================== */
 
-            color: #1e40af;
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 12px;
+
+                align-items: flex-start;
+
+            }
+
+
+            .container {
+
+                margin-top: 10px;
+
+                padding: 24px 20px;
+
+                border-radius: 18px;
+
+            }
+
+
+            h1 {
+
+                font-size: 25px;
+
+            }
+
+
+            .icone {
+
+                width: 65px;
+
+                height: 65px;
+
+                font-size: 34px;
+
+            }
+
         }
 
     </style>
@@ -346,6 +639,10 @@
 <div class="container">
 
 
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
     <div class="cabecalho">
 
         <div class="icone">
@@ -357,8 +654,10 @@
         </h1>
 
         <p class="subtitulo">
+
             Sistema preditivo para identificação precoce
             de possível baixo desempenho escolar.
+
         </p>
 
     </div>
@@ -367,8 +666,14 @@
     <hr class="linha">
 
 
+    <!-- =====================================================
+         CAMPO DE CÓDIGO
+         ===================================================== -->
+
     <label for="codigo">
+
         🔢 Código do aluno
+
     </label>
 
 
@@ -381,33 +686,51 @@
 
 
     <button onclick="analisarAluno()">
+
         🔎 ANALISAR ALUNO
+
     </button>
 
 
+    <!-- =====================================================
+         RESULTADO
+         ===================================================== -->
+
     <div id="resultado"></div>
 
+
+    <!-- =====================================================
+         MODELO
+         ===================================================== -->
 
     <div class="modelo">
 
         🌳 <strong>Modelo utilizado</strong>
 
-        <br><br>
+        <br>
 
         Árvore de Decisão treinada no projeto
         de Aprendizado de Máquina.
 
-        <br><br>
-
-        📊 <strong>Acurácia do modelo: 94,05%</strong>
-
         <br>
+
+        <span class="acuracia">
+
+            📊 Acurácia do modelo: 94,05%
+
+        </span>
+
+        <br><br>
 
         O modelo apresentou 94,05% de acerto
         nos dados de teste.
 
     </div>
 
+
+    <!-- =====================================================
+         AVISO
+         ===================================================== -->
 
     <p class="aviso">
 
@@ -417,6 +740,10 @@
 
     </p>
 
+
+    <!-- =====================================================
+         RODAPÉ
+         ===================================================== -->
 
     <div class="rodape">
 
@@ -712,15 +1039,17 @@ function analisarAluno() {
 
             <div class="dados">
 
-                <strong>
+                <div class="dados-titulo">
+
                     📊 Dados analisados
-                </strong>
+
+                </div>
 
 
                 <div>
 
                     🔢 Código:
-                    ${aluno.codigo_aluno}
+                    <strong>${aluno.codigo_aluno}</strong>
 
                 </div>
 
@@ -728,7 +1057,7 @@ function analisarAluno() {
                 <div>
 
                     📅 Ano letivo:
-                    ${ano}
+                    <strong>${ano}</strong>
 
                 </div>
 
@@ -736,7 +1065,7 @@ function analisarAluno() {
                 <div>
 
                     📈 Frequência:
-                    ${frequencia}%
+                    <strong>${frequencia}%</strong>
 
                 </div>
 
@@ -744,7 +1073,9 @@ function analisarAluno() {
                 <div>
 
                     🤖 Uso de IA:
-                    ${usoIA === 1 ? "Sim" : "Não"}
+                    <strong>
+                        ${usoIA === 1 ? "Sim" : "Não"}
+                    </strong>
 
                 </div>
 
@@ -783,8 +1114,14 @@ function analisarAluno() {
 
                 <div class="probabilidade-linha">
 
-                    🟢 Desempenho adequado:
-                    ${probabilidadeAdequado.toFixed(2)}%
+                    🟢 Desempenho adequado
+
+                    <span class="valor-probabilidade">
+
+                        ${probabilidadeAdequado.toFixed(2)}%
+
+                    </span>
+
 
                     <div class="barra-container">
 
@@ -800,8 +1137,14 @@ function analisarAluno() {
 
                 <div class="probabilidade-linha">
 
-                    🔴 Possível baixo desempenho:
-                    ${probabilidadeBaixo.toFixed(2)}%
+                    🔴 Possível baixo desempenho
+
+                    <span class="valor-probabilidade">
+
+                        ${probabilidadeBaixo.toFixed(2)}%
+
+                    </span>
+
 
                     <div class="barra-container">
 
@@ -877,15 +1220,17 @@ function analisarAluno() {
 
             <div class="dados">
 
-                <strong>
+                <div class="dados-titulo">
+
                     📊 Dados analisados
-                </strong>
+
+                </div>
 
 
                 <div>
 
                     🔢 Código:
-                    ${aluno.codigo_aluno}
+                    <strong>${aluno.codigo_aluno}</strong>
 
                 </div>
 
@@ -893,7 +1238,7 @@ function analisarAluno() {
                 <div>
 
                     📅 Ano letivo:
-                    ${ano}
+                    <strong>${ano}</strong>
 
                 </div>
 
@@ -901,7 +1246,7 @@ function analisarAluno() {
                 <div>
 
                     📈 Frequência:
-                    ${frequencia}%
+                    <strong>${frequencia}%</strong>
 
                 </div>
 
@@ -909,7 +1254,9 @@ function analisarAluno() {
                 <div>
 
                     🤖 Uso de IA:
-                    ${usoIA === 1 ? "Sim" : "Não"}
+                    <strong>
+                        ${usoIA === 1 ? "Sim" : "Não"}
+                    </strong>
 
                 </div>
 
@@ -948,8 +1295,14 @@ function analisarAluno() {
 
                 <div class="probabilidade-linha">
 
-                    🟢 Desempenho adequado:
-                    ${probabilidadeAdequado.toFixed(2)}%
+                    🟢 Desempenho adequado
+
+                    <span class="valor-probabilidade">
+
+                        ${probabilidadeAdequado.toFixed(2)}%
+
+                    </span>
+
 
                     <div class="barra-container">
 
@@ -965,8 +1318,14 @@ function analisarAluno() {
 
                 <div class="probabilidade-linha">
 
-                    🔴 Possível baixo desempenho:
-                    ${probabilidadeBaixo.toFixed(2)}%
+                    🔴 Possível baixo desempenho
+
+                    <span class="valor-probabilidade">
+
+                        ${probabilidadeBaixo.toFixed(2)}%
+
+                    </span>
+
 
                     <div class="barra-container">
 
