@@ -12,13 +12,16 @@
 
     <title>Análise de Desempenho Escolar</title>
 
+
     <style>
 
         * {
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
 
             font-family:
@@ -29,42 +32,41 @@
             background:
                 linear-gradient(
                     135deg,
-                    #eef4ff 0%,
-                    #f8fafc 50%,
-                    #eef6ff 100%
+                    #e0f2fe,
+                    #f8fafc 45%,
+                    #eef2ff
                 );
 
             min-height: 100vh;
 
-            display: flex;
+            padding: 40px 20px;
 
-            justify-content: center;
+            color: #1e293b;
 
-            align-items: center;
-
-            padding: 25px;
         }
 
 
         /* =====================================================
-           CONTAINER PRINCIPAL
+           CONTAINER
            ===================================================== */
 
         .container {
 
             width: 100%;
 
-            max-width: 600px;
+            max-width: 760px;
+
+            margin: auto;
 
             background: #ffffff;
 
-            padding: 35px;
+            border-radius: 28px;
 
-            border-radius: 22px;
+            overflow: hidden;
 
             box-shadow:
-                0 15px 45px
-                rgba(15, 23, 42, 0.12);
+                0 20px 60px
+                rgba(15, 23, 42, 0.14);
 
         }
 
@@ -73,23 +75,32 @@
            CABEÇALHO
            ===================================================== */
 
-        .cabecalho {
+        .topo {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1d4ed8,
+                    #2563eb,
+                    #3b82f6
+                );
+
+            color: white;
+
+            padding: 38px 35px;
 
             text-align: center;
-
-            margin-bottom: 28px;
 
         }
 
 
         .icone {
 
-            width: 76px;
+            width: 78px;
 
-            height: 76px;
+            height: 78px;
 
-            margin:
-                0 auto 15px;
+            margin: 0 auto 18px;
 
             display: flex;
 
@@ -97,9 +108,14 @@
 
             justify-content: center;
 
-            background: #eff6ff;
+            background:
+                rgba(255,255,255,0.16);
 
-            border-radius: 20px;
+            border:
+                1px solid
+                rgba(255,255,255,0.25);
+
+            border-radius: 22px;
 
             font-size: 40px;
 
@@ -110,59 +126,91 @@
 
             margin: 0;
 
-            color: #173b67;
+            font-size: 30px;
 
-            font-size: 29px;
+            letter-spacing: -0.5px;
 
         }
 
 
         .subtitulo {
 
-            color: #64748b;
+            margin:
+                12px auto 0;
+
+            max-width: 540px;
+
+            color:
+                rgba(255,255,255,0.88);
 
             line-height: 1.6;
 
             font-size: 15px;
 
-            margin:
-                10px auto 0;
-
-            max-width: 470px;
-
         }
 
 
-        .linha {
+        /* =====================================================
+           ÁREA PRINCIPAL
+           ===================================================== */
 
-            border: none;
+        .conteudo {
 
-            border-top:
-                1px solid #e2e8f0;
-
-            margin:
-                25px 0;
+            padding: 35px;
 
         }
 
 
         /* =====================================================
-           FORMULÁRIO
+           BUSCA
            ===================================================== */
+
+        .titulo-secao {
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            color: #0f172a;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .descricao-secao {
+
+            margin-top: 0;
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
 
         label {
 
             display: block;
 
-            margin-top: 18px;
+            margin-top: 24px;
 
             margin-bottom: 8px;
 
+            font-size: 14px;
+
             font-weight: bold;
 
-            color: #1e293b;
+            color: #334155;
 
-            font-size: 15px;
+        }
+
+
+        .campo {
+
+            position: relative;
 
         }
 
@@ -171,20 +219,20 @@
 
             width: 100%;
 
-            padding: 14px;
+            padding: 16px 17px;
 
             border:
-                1px solid #cbd5e1;
+                2px solid #e2e8f0;
 
-            border-radius: 10px;
+            border-radius: 13px;
 
             font-size: 16px;
 
-            background: #ffffff;
+            color: #0f172a;
 
-            transition:
-                border-color 0.2s,
-                box-shadow 0.2s;
+            background: #f8fafc;
+
+            transition: 0.2s;
 
         }
 
@@ -193,11 +241,20 @@
 
             outline: none;
 
-            border-color: #2563eb;
+            border-color: #3b82f6;
+
+            background: white;
 
             box-shadow:
-                0 0 0 3px
-                rgba(37, 99, 235, 0.12);
+                0 0 0 4px
+                rgba(59,130,246,0.10);
+
+        }
+
+
+        input::placeholder {
+
+            color: #94a3b8;
 
         }
 
@@ -206,15 +263,20 @@
 
             width: 100%;
 
-            margin-top: 22px;
+            margin-top: 16px;
 
-            padding: 15px;
+            padding: 16px;
 
             border: none;
 
-            border-radius: 10px;
+            border-radius: 13px;
 
-            background: #2563eb;
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #1d4ed8
+                );
 
             color: white;
 
@@ -224,23 +286,31 @@
 
             cursor: pointer;
 
-            transition:
-                background 0.2s,
-                transform 0.1s;
+            box-shadow:
+                0 8px 18px
+                rgba(37,99,235,0.20);
+
+            transition: 0.2s;
 
         }
 
 
         button:hover {
 
-            background: #1d4ed8;
+            transform:
+                translateY(-1px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(37,99,235,0.25);
 
         }
 
 
         button:active {
 
-            transform: scale(0.99);
+            transform:
+                translateY(0);
 
         }
 
@@ -253,129 +323,258 @@
 
             display: none;
 
-            margin-top: 28px;
-
-            padding: 22px;
-
-            border-radius: 15px;
-
-            line-height: 1.55;
+            margin-top: 30px;
 
         }
 
 
-        .adequado {
+        .resultado-card {
 
-            background: #f0fdf4;
+            border-radius: 20px;
+
+            overflow: hidden;
 
             border:
-                1px solid #86efac;
+                1px solid #e2e8f0;
 
-            color: #166534;
+            background: white;
 
-        }
-
-
-        .baixo {
-
-            background: #fff7f7;
-
-            border:
-                1px solid #fca5a5;
-
-            color: #991b1b;
-
-        }
-
-
-        .erro {
-
-            background: #fffbeb;
-
-            border:
-                1px solid #fcd34d;
-
-            color: #92400e;
-
-        }
-
-
-        .carregando {
-
-            background: #eff6ff;
-
-            border:
-                1px solid #93c5fd;
-
-            color: #1e40af;
-
-        }
-
-
-        .resultado-titulo {
-
-            font-size: 22px;
-
-            font-weight: bold;
-
-            margin-bottom: 10px;
+            box-shadow:
+                0 8px 25px
+                rgba(15,23,42,0.07);
 
         }
 
 
         /* =====================================================
-           DADOS ANALISADOS
+           CABEÇALHO DO RESULTADO
            ===================================================== */
 
-        .dados {
+        .resultado-header {
 
-            background:
-                rgba(255,255,255,0.82);
+            padding: 24px;
 
-            color: #334155;
+            display: flex;
 
-            padding: 16px;
+            align-items: center;
 
-            border-radius: 11px;
-
-            margin-top: 18px;
-
-            font-size: 14px;
-
-            border:
-                1px solid
-                rgba(203,213,225,0.7);
+            gap: 16px;
 
         }
 
 
-        .dados-titulo {
+        .resultado-icone {
+
+            width: 55px;
+
+            height: 55px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 16px;
+
+            font-size: 28px;
+
+        }
+
+
+        .resultado-header h2 {
+
+            margin: 0;
+
+            font-size: 21px;
+
+        }
+
+
+        .resultado-header p {
+
+            margin:
+                5px 0 0;
+
+            font-size: 13px;
+
+            color: #64748b;
+
+        }
+
+
+        .header-adequado {
+
+            background: #f0fdf4;
+
+            border-bottom:
+                1px solid #bbf7d0;
+
+        }
+
+
+        .header-adequado
+        .resultado-icone {
+
+            background: #dcfce7;
+
+        }
+
+
+        .header-adequado h2 {
+
+            color: #15803d;
+
+        }
+
+
+        .header-baixo {
+
+            background: #fff7f7;
+
+            border-bottom:
+                1px solid #fecaca;
+
+        }
+
+
+        .header-baixo
+        .resultado-icone {
+
+            background: #fee2e2;
+
+        }
+
+
+        .header-baixo h2 {
+
+            color: #b91c1c;
+
+        }
+
+
+        /* =====================================================
+           CORPO DO RESULTADO
+           ===================================================== */
+
+        .resultado-corpo {
+
+            padding: 24px;
+
+        }
+
+
+        .resultado-intro {
+
+            margin: 0 0 20px;
+
+            color: #475569;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           DADOS DO ALUNO
+           ===================================================== */
+
+        .dados-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+
+        }
+
+
+        .dado {
+
+            padding: 15px;
+
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 13px;
+
+        }
+
+
+        .dado-label {
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            color: #94a3b8;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .dado-valor {
+
+            font-size: 15px;
 
             font-weight: bold;
-
-            margin-bottom: 10px;
 
             color: #1e293b;
 
         }
 
 
-        .dados div {
+        /* =====================================================
+           RESULTADO DA CLASSIFICAÇÃO
+           ===================================================== */
 
-            margin: 7px 0;
+        .classificacao {
+
+            margin-top: 22px;
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
 
         }
 
 
-        /* =====================================================
-           EXPLICAÇÃO
-           ===================================================== */
+        .classificacao-titulo {
 
-        .explicacao {
+            font-size: 13px;
 
-            margin-top: 18px;
+            font-weight: bold;
 
-            font-size: 14px;
+            color: #64748b;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .classificacao-texto {
+
+            font-size: 15px;
+
+            color: #334155;
+
+            line-height: 1.55;
 
         }
 
@@ -386,18 +585,13 @@
 
         .probabilidades {
 
-            margin-top: 20px;
+            margin-top: 22px;
 
-            padding: 17px;
+            padding: 20px;
 
-            background:
-                rgba(255,255,255,0.9);
+            border-radius: 16px;
 
-            border-radius: 12px;
-
-            color: #334155;
-
-            font-size: 14px;
+            background: #f8fafc;
 
             border:
                 1px solid #e2e8f0;
@@ -407,92 +601,163 @@
 
         .probabilidades-titulo {
 
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
             font-weight: bold;
-
-            margin-bottom: 15px;
-
-            font-size: 15px;
 
             color: #1e293b;
 
+            margin-bottom: 20px;
+
+            font-size: 15px;
+
         }
 
 
-        .probabilidade-linha {
+        .probabilidade-item {
 
-            margin:
-                13px 0 17px;
+            margin-bottom: 18px;
+
+        }
+
+
+        .probabilidade-item:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .probabilidade-topo {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
 
             font-weight: bold;
 
-            color: #334155;
+        }
+
+
+        .verde {
+
+            color: #15803d;
 
         }
 
 
-        .valor-probabilidade {
+        .vermelho {
 
-            float: right;
-
-            font-weight: bold;
+            color: #dc2626;
 
         }
 
 
-        .barra-container {
+        .barra {
 
-            width: 100%;
-
-            height: 10px;
+            height: 12px;
 
             background: #e2e8f0;
 
-            border-radius: 10px;
+            border-radius: 20px;
 
             overflow: hidden;
 
-            margin-top: 7px;
+        }
+
+
+        .barra-verde {
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #22c55e,
+                    #16a34a
+                );
+
+            border-radius: 20px;
+
+            transition:
+                width 0.6s ease;
 
         }
 
 
-        .barra-adequado {
+        .barra-vermelha {
 
             height: 100%;
 
-            background: #22c55e;
+            background:
+                linear-gradient(
+                    90deg,
+                    #ef4444,
+                    #dc2626
+                );
 
-            border-radius: 10px;
+            border-radius: 20px;
 
-        }
-
-
-        .barra-baixo {
-
-            height: 100%;
-
-            background: #ef4444;
-
-            border-radius: 10px;
+            transition:
+                width 0.6s ease;
 
         }
 
 
         .explicacao-probabilidade {
 
-            margin-top: 15px;
+            margin-top: 18px;
 
-            padding: 13px;
+            padding: 14px;
 
-            background: #f8fafc;
+            background: white;
 
-            border-radius: 9px;
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 11px;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            line-height: 1.55;
+
+        }
+
+
+        /* =====================================================
+           ORIENTAÇÃO
+           ===================================================== */
+
+        .orientacao {
+
+            margin-top: 20px;
+
+            padding: 17px;
+
+            border-radius: 13px;
+
+            background: #eff6ff;
+
+            border:
+                1px solid #bfdbfe;
+
+            color: #1e40af;
 
             font-size: 13px;
 
             line-height: 1.55;
-
-            color: #475569;
 
         }
 
@@ -503,41 +768,93 @@
 
         .modelo {
 
-            margin-top: 24px;
+            margin-top: 30px;
 
-            padding: 18px;
+            padding: 22px;
 
-            background: #eff6ff;
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eff6ff,
+                    #f8fafc
+                );
 
             border:
                 1px solid #bfdbfe;
 
-            border-radius: 12px;
+        }
 
-            color: #1e40af;
 
-            font-size: 14px;
+        .modelo-titulo {
 
-            text-align: center;
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-weight: bold;
+
+            color: #1e3a8a;
+
+            font-size: 16px;
+
+        }
+
+
+        .modelo-texto {
+
+            margin-top: 9px;
+
+            color: #475569;
+
+            font-size: 13px;
 
             line-height: 1.5;
 
         }
 
 
-        .acuracia {
+        .acuracia-box {
 
-            display: inline-block;
+            margin-top: 15px;
 
-            margin-top: 7px;
+            padding: 15px;
 
-            padding: 7px 12px;
+            background: white;
 
-            background: #ffffff;
+            border-radius: 12px;
 
-            border-radius: 8px;
+            border:
+                1px solid #dbeafe;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .acuracia-label {
+
+            color: #64748b;
+
+            font-size: 13px;
+
+        }
+
+
+        .acuracia-valor {
+
+            font-size: 20px;
 
             font-weight: bold;
+
+            color: #2563eb;
 
         }
 
@@ -548,15 +865,64 @@
 
         .aviso {
 
-            margin-top: 20px;
+            margin-top: 22px;
 
-            color: #64748b;
+            padding: 14px;
+
+            background: #fffbeb;
+
+            border:
+                1px solid #fde68a;
+
+            border-radius: 12px;
+
+            color: #92400e;
 
             font-size: 12px;
 
+            line-height: 1.5;
+
             text-align: center;
 
-            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           ERRO
+           ===================================================== */
+
+        .erro-box {
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            background: #fff7ed;
+
+            border:
+                1px solid #fed7aa;
+
+            border-radius: 15px;
+
+            color: #9a3412;
+
+        }
+
+
+        .carregando-box {
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            background: #eff6ff;
+
+            border:
+                1px solid #bfdbfe;
+
+            border-radius: 15px;
+
+            color: #1e40af;
 
         }
 
@@ -567,18 +933,14 @@
 
         .rodape {
 
-            margin-top: 25px;
-
-            padding-top: 18px;
-
-            border-top:
-                1px solid #e2e8f0;
+            padding:
+                20px 35px 28px;
 
             text-align: center;
 
             color: #94a3b8;
 
-            font-size: 12px;
+            font-size: 11px;
 
         }
 
@@ -591,20 +953,21 @@
 
             body {
 
-                padding: 12px;
-
-                align-items: flex-start;
+                padding: 15px;
 
             }
 
 
-            .container {
+            .topo {
 
-                margin-top: 10px;
+                padding: 30px 20px;
 
-                padding: 24px 20px;
+            }
 
-                border-radius: 18px;
+
+            .conteudo {
+
+                padding: 25px 20px;
 
             }
 
@@ -616,13 +979,34 @@
             }
 
 
-            .icone {
+            .dados-grid {
 
-                width: 65px;
+                grid-template-columns: 1fr;
 
-                height: 65px;
+            }
 
-                font-size: 34px;
+
+            .resultado-header {
+
+                padding: 20px;
+
+            }
+
+
+            .resultado-corpo {
+
+                padding: 20px;
+
+            }
+
+
+            .acuracia-box {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 5px;
 
             }
 
@@ -643,14 +1027,14 @@
          CABEÇALHO
          ===================================================== -->
 
-    <div class="cabecalho">
+    <div class="topo">
 
         <div class="icone">
             📚
         </div>
 
         <h1>
-            Desempenho Escolar
+            Análise de Desempenho Escolar
         </h1>
 
         <p class="subtitulo">
@@ -663,82 +1047,123 @@
     </div>
 
 
-    <hr class="linha">
-
-
     <!-- =====================================================
-         CAMPO DE CÓDIGO
+         CONTEÚDO
          ===================================================== -->
 
-    <label for="codigo">
-
-        🔢 Código do aluno
-
-    </label>
+    <div class="conteudo">
 
 
-    <input
-        type="text"
-        id="codigo"
-        placeholder="Ex.: ALUNO0001"
-        autocomplete="off"
-    >
+        <div class="titulo-secao">
+
+            🔎 Consultar aluno
+
+        </div>
 
 
-    <button onclick="analisarAluno()">
+        <p class="descricao-secao">
 
-        🔎 ANALISAR ALUNO
+            Informe o código do aluno para consultar
+            os dados e realizar a classificação pelo
+            modelo de Aprendizado de Máquina.
 
-    </button>
-
-
-    <!-- =====================================================
-         RESULTADO
-         ===================================================== -->
-
-    <div id="resultado"></div>
+        </p>
 
 
-    <!-- =====================================================
-         MODELO
-         ===================================================== -->
+        <label for="codigo">
 
-    <div class="modelo">
+            Código do aluno
 
-        🌳 <strong>Modelo utilizado</strong>
+        </label>
 
-        <br>
 
-        Árvore de Decisão treinada no projeto
-        de Aprendizado de Máquina.
+        <div class="campo">
 
-        <br>
+            <input
+                type="text"
+                id="codigo"
+                placeholder="Ex.: ALUNO0001"
+                autocomplete="off"
+            >
 
-        <span class="acuracia">
+        </div>
 
-            📊 Acurácia do modelo: 94,05%
 
-        </span>
+        <button onclick="analisarAluno()">
 
-        <br><br>
+            🔎 ANALISAR ALUNO
 
-        O modelo apresentou 94,05% de acerto
-        nos dados de teste.
+        </button>
+
+
+        <!-- =================================================
+             RESULTADO
+             ================================================= -->
+
+        <div id="resultado"></div>
+
+
+        <!-- =================================================
+             MODELO
+             ================================================= -->
+
+        <div class="modelo">
+
+            <div class="modelo-titulo">
+
+                🌳
+
+                <span>
+                    Modelo de Aprendizado de Máquina
+                </span>
+
+            </div>
+
+
+            <div class="modelo-texto">
+
+                A classificação é realizada por uma
+                <strong>Árvore de Decisão</strong>
+                treinada com os dados do projeto.
+
+            </div>
+
+
+            <div class="acuracia-box">
+
+                <span class="acuracia-label">
+
+                    📊 Acurácia no conjunto de teste
+
+                </span>
+
+
+                <span class="acuracia-valor">
+
+                    94,05%
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AVISO
+             ================================================= -->
+
+        <div class="aviso">
+
+            ⚠️ <strong>Importante:</strong>
+            esta ferramenta apresenta uma previsão
+            baseada nos dados do modelo e não substitui
+            a avaliação pedagógica do professor.
+
+        </div>
+
 
     </div>
-
-
-    <!-- =====================================================
-         AVISO
-         ===================================================== -->
-
-    <p class="aviso">
-
-        ⚠️ Esta ferramenta apresenta uma previsão
-        baseada nos dados do modelo e não substitui
-        a avaliação pedagógica do professor.
-
-    </p>
 
 
     <!-- =====================================================
@@ -813,25 +1238,27 @@ fetch("alunos.json")
 
         resultado.style.display = "block";
 
-        resultado.className = "erro";
-
         resultado.innerHTML = `
 
-            <div class="resultado-titulo">
+            <div class="erro-box">
 
-                ⚠️ Erro ao carregar a base
+                <strong>
+                    ⚠️ Erro ao carregar a base
+                </strong>
+
+                <br><br>
+
+                Não foi possível carregar os dados
+                dos alunos.
+
+                <br><br>
+
+                Verifique se o arquivo
+                <strong>alunos.json</strong>
+                está no mesmo local do
+                <strong>index.html</strong>.
 
             </div>
-
-            Não foi possível carregar os dados
-            dos alunos.
-
-            <br><br>
-
-            Verifique se o arquivo
-            <strong>alunos.json</strong>
-            está no mesmo local do
-            <strong>index.html</strong>.
 
         `;
 
@@ -859,25 +1286,27 @@ function analisarAluno() {
 
 
     /* --------------------------------------------------------
-       VALIDAÇÃO DO CÓDIGO
+       VALIDAR CÓDIGO
        -------------------------------------------------------- */
 
     if (codigoInput === "") {
 
         resultado.style.display = "block";
 
-        resultado.className = "erro";
-
         resultado.innerHTML = `
 
-            <div class="resultado-titulo">
+            <div class="erro-box">
 
-                ⚠️ Informe o código do aluno
+                <strong>
+                    ⚠️ Informe o código do aluno
+                </strong>
+
+                <br><br>
+
+                Digite o código antes de realizar
+                a análise.
 
             </div>
-
-            Digite o código antes de realizar
-            a análise.
 
         `;
 
@@ -887,25 +1316,27 @@ function analisarAluno() {
 
 
     /* --------------------------------------------------------
-       VERIFICAR SE A BASE FOI CARREGADA
+       VERIFICAR BASE
        -------------------------------------------------------- */
 
     if (alunos.length === 0) {
 
         resultado.style.display = "block";
 
-        resultado.className = "carregando";
-
         resultado.innerHTML = `
 
-            <div class="resultado-titulo">
+            <div class="carregando-box">
 
-                ⏳ Carregando dados
+                <strong>
+                    ⏳ Carregando dados
+                </strong>
+
+                <br><br>
+
+                Aguarde alguns segundos e tente
+                novamente.
 
             </div>
-
-            Aguarde alguns segundos e tente
-            novamente.
 
         `;
 
@@ -915,7 +1346,7 @@ function analisarAluno() {
 
 
     /* --------------------------------------------------------
-       PROCURAR O ALUNO
+       PROCURAR ALUNO
        -------------------------------------------------------- */
 
     const aluno =
@@ -934,24 +1365,26 @@ function analisarAluno() {
 
         resultado.style.display = "block";
 
-        resultado.className = "erro";
-
         resultado.innerHTML = `
 
-            <div class="resultado-titulo">
+            <div class="erro-box">
 
-                ⚠️ Código não encontrado
+                <strong>
+                    ⚠️ Código não encontrado
+                </strong>
+
+                <br><br>
+
+                O código
+                <strong>${codigoInput}</strong>
+                não foi encontrado na base de alunos.
+
+                <br><br>
+
+                Verifique o código informado e
+                tente novamente.
 
             </div>
-
-            O código
-            <strong>${codigoInput}</strong>
-            não foi encontrado na base de alunos.
-
-            <br><br>
-
-            Verifique o código informado e
-            tente novamente.
 
         `;
 
@@ -961,7 +1394,7 @@ function analisarAluno() {
 
 
     /* --------------------------------------------------------
-       PEGAR DADOS DO ALUNO
+       DADOS
        -------------------------------------------------------- */
 
     const ano =
@@ -977,7 +1410,7 @@ function analisarAluno() {
 
 
     /* --------------------------------------------------------
-       FAZER A PREVISÃO
+       PREVISÃO
        -------------------------------------------------------- */
 
     const previsao =
@@ -996,10 +1429,6 @@ function analisarAluno() {
         previsao.probabilidade * 100;
 
 
-    /* --------------------------------------------------------
-       PEGAR AS DUAS PROBABILIDADES
-       -------------------------------------------------------- */
-
     const probabilidadeAdequado =
         previsao.probabilidadeAdequado * 100;
 
@@ -1012,178 +1441,228 @@ function analisarAluno() {
 
 
     /* ========================================================
-       POSSÍVEL BAIXO DESEMPENHO
+       BAIXO DESEMPENHO
        ======================================================== */
 
     if (classe === 1) {
 
-        resultado.className = "baixo";
 
         resultado.innerHTML = `
 
-            <div class="resultado-titulo">
-
-                ⚠️ Possível baixo desempenho
-
-            </div>
+            <div class="resultado-card">
 
 
-            <p>
+                <div class="resultado-header header-baixo">
 
-                O modelo identificou características
-                associadas à classe de possível
-                baixo desempenho.
+                    <div class="resultado-icone">
 
-            </p>
+                        ⚠️
 
-
-            <div class="dados">
-
-                <div class="dados-titulo">
-
-                    📊 Dados analisados
-
-                </div>
+                    </div>
 
 
-                <div>
+                    <div>
 
-                    🔢 Código:
-                    <strong>${aluno.codigo_aluno}</strong>
+                        <h2>
+                            Possível baixo desempenho
+                        </h2>
 
-                </div>
-
-
-                <div>
-
-                    📅 Ano letivo:
-                    <strong>${ano}</strong>
-
-                </div>
-
-
-                <div>
-
-                    📈 Frequência:
-                    <strong>${frequencia}%</strong>
-
-                </div>
-
-
-                <div>
-
-                    🤖 Uso de IA:
-                    <strong>
-                        ${usoIA === 1 ? "Sim" : "Não"}
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="explicacao">
-
-                📌 <strong>Resultado da análise:</strong>
-
-                o aluno apresentou frequência de
-                ${frequencia}% e o modelo classificou
-                os dados informados como
-                <strong>possível baixo desempenho</strong>.
-
-            </div>
-
-
-            <div class="explicacao">
-
-                📊 <strong>Probabilidade estimada:</strong>
-
-                ${probabilidade.toFixed(2)}%
-
-            </div>
-
-
-            <div class="probabilidades">
-
-                <div class="probabilidades-titulo">
-
-                    📊 Distribuição na folha da árvore
-
-                </div>
-
-
-                <div class="probabilidade-linha">
-
-                    🟢 Desempenho adequado
-
-                    <span class="valor-probabilidade">
-
-                        ${probabilidadeAdequado.toFixed(2)}%
-
-                    </span>
-
-
-                    <div class="barra-container">
-
-                        <div
-                            class="barra-adequado"
-                            style="width: ${probabilidadeAdequado}%"
-                        ></div>
+                        <p>
+                            Classificação realizada pela
+                            Árvore de Decisão.
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <div class="probabilidade-linha">
-
-                    🔴 Possível baixo desempenho
-
-                    <span class="valor-probabilidade">
-
-                        ${probabilidadeBaixo.toFixed(2)}%
-
-                    </span>
+                <div class="resultado-corpo">
 
 
-                    <div class="barra-container">
+                    <p class="resultado-intro">
 
-                        <div
-                            class="barra-baixo"
-                            style="width: ${probabilidadeBaixo}%"
-                        ></div>
+                        O modelo identificou características
+                        associadas à classe de possível
+                        baixo desempenho.
+
+                    </p>
+
+
+                    <div class="dados-grid">
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Código
+                            </div>
+
+                            <div class="dado-valor">
+                                ${aluno.codigo_aluno}
+                            </div>
+
+                        </div>
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Ano letivo
+                            </div>
+
+                            <div class="dado-valor">
+                                ${ano}
+                            </div>
+
+                        </div>
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Frequência
+                            </div>
+
+                            <div class="dado-valor">
+                                ${frequencia}%
+                            </div>
+
+                        </div>
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Uso de IA
+                            </div>
+
+                            <div class="dado-valor">
+                                ${usoIA === 1 ? "Sim" : "Não"}
+                            </div>
+
+                        </div>
+
 
                     </div>
 
+
+                    <div class="classificacao">
+
+                        <div class="classificacao-titulo">
+
+                            📌 RESULTADO DA ANÁLISE
+
+                        </div>
+
+
+                        <div class="classificacao-texto">
+
+                            O aluno apresentou frequência de
+                            <strong>${frequencia}%</strong>
+                            e o modelo classificou os dados
+                            informados como
+                            <strong>possível baixo desempenho</strong>.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="probabilidades">
+
+
+                        <div class="probabilidades-titulo">
+
+                            📊 Distribuição na folha da árvore
+
+                        </div>
+
+
+                        <div class="probabilidade-item">
+
+                            <div class="probabilidade-topo">
+
+                                <span class="verde">
+                                    🟢 Desempenho adequado
+                                </span>
+
+                                <span>
+                                    ${probabilidadeAdequado.toFixed(2)}%
+                                </span>
+
+                            </div>
+
+
+                            <div class="barra">
+
+                                <div
+                                    class="barra-verde"
+                                    style="width:${probabilidadeAdequado}%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="probabilidade-item">
+
+                            <div class="probabilidade-topo">
+
+                                <span class="vermelho">
+                                    🔴 Possível baixo desempenho
+                                </span>
+
+                                <span>
+                                    ${probabilidadeBaixo.toFixed(2)}%
+                                </span>
+
+                            </div>
+
+
+                            <div class="barra">
+
+                                <div
+                                    class="barra-vermelha"
+                                    style="width:${probabilidadeBaixo}%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="explicacao-probabilidade">
+
+                            💡 Essas porcentagens representam
+                            a distribuição das duas classes
+                            entre os exemplos de treinamento
+                            que chegaram à mesma folha da árvore.
+
+                            <br><br>
+
+                            Elas <strong>não representam a
+                            acurácia geral</strong> do modelo.
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="orientacao">
+
+                        💡 <strong>Orientação:</strong>
+
+                        recomenda-se acompanhamento
+                        pedagógico e observação do
+                        desenvolvimento do aluno.
+
+                    </div>
+
+
                 </div>
-
-
-                <div class="explicacao-probabilidade">
-
-                    💡 <strong>Como interpretar:</strong>
-
-                    essas porcentagens representam a
-                    distribuição das duas classes entre
-                    os exemplos de treinamento que chegaram
-                    à mesma folha da árvore.
-
-                    <br><br>
-
-                    Elas não representam a acurácia geral
-                    do modelo.
-
-                </div>
-
-            </div>
-
-
-            <div class="explicacao">
-
-                💡 <strong>Orientação:</strong>
-
-                recomenda-se acompanhamento
-                pedagógico e observação do
-                desenvolvimento do aluno.
 
             </div>
 
@@ -1198,173 +1677,223 @@ function analisarAluno() {
 
     else {
 
-        resultado.className = "adequado";
 
         resultado.innerHTML = `
 
-            <div class="resultado-titulo">
-
-                ✅ Desempenho adequado
-
-            </div>
+            <div class="resultado-card">
 
 
-            <p>
+                <div class="resultado-header header-adequado">
 
-                Não foram identificadas, nesta análise
-                inicial, características associadas
-                ao baixo desempenho.
+                    <div class="resultado-icone">
 
-            </p>
+                        ✅
 
-
-            <div class="dados">
-
-                <div class="dados-titulo">
-
-                    📊 Dados analisados
-
-                </div>
+                    </div>
 
 
-                <div>
+                    <div>
 
-                    🔢 Código:
-                    <strong>${aluno.codigo_aluno}</strong>
+                        <h2>
+                            Desempenho adequado
+                        </h2>
 
-                </div>
-
-
-                <div>
-
-                    📅 Ano letivo:
-                    <strong>${ano}</strong>
-
-                </div>
-
-
-                <div>
-
-                    📈 Frequência:
-                    <strong>${frequencia}%</strong>
-
-                </div>
-
-
-                <div>
-
-                    🤖 Uso de IA:
-                    <strong>
-                        ${usoIA === 1 ? "Sim" : "Não"}
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="explicacao">
-
-                📌 <strong>Resultado da análise:</strong>
-
-                o aluno apresentou frequência de
-                ${frequencia}% e, de acordo com o
-                modelo, os dados foram classificados
-                como <strong>desempenho adequado</strong>.
-
-            </div>
-
-
-            <div class="explicacao">
-
-                📊 <strong>Probabilidade estimada:</strong>
-
-                ${probabilidade.toFixed(2)}%
-
-            </div>
-
-
-            <div class="probabilidades">
-
-                <div class="probabilidades-titulo">
-
-                    📊 Distribuição na folha da árvore
-
-                </div>
-
-
-                <div class="probabilidade-linha">
-
-                    🟢 Desempenho adequado
-
-                    <span class="valor-probabilidade">
-
-                        ${probabilidadeAdequado.toFixed(2)}%
-
-                    </span>
-
-
-                    <div class="barra-container">
-
-                        <div
-                            class="barra-adequado"
-                            style="width: ${probabilidadeAdequado}%"
-                        ></div>
+                        <p>
+                            Classificação realizada pela
+                            Árvore de Decisão.
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <div class="probabilidade-linha">
-
-                    🔴 Possível baixo desempenho
-
-                    <span class="valor-probabilidade">
-
-                        ${probabilidadeBaixo.toFixed(2)}%
-
-                    </span>
+                <div class="resultado-corpo">
 
 
-                    <div class="barra-container">
+                    <p class="resultado-intro">
 
-                        <div
-                            class="barra-baixo"
-                            style="width: ${probabilidadeBaixo}%"
-                        ></div>
+                        Não foram identificadas, nesta
+                        análise inicial, características
+                        associadas ao baixo desempenho.
+
+                    </p>
+
+
+                    <div class="dados-grid">
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Código
+                            </div>
+
+                            <div class="dado-valor">
+                                ${aluno.codigo_aluno}
+                            </div>
+
+                        </div>
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Ano letivo
+                            </div>
+
+                            <div class="dado-valor">
+                                ${ano}
+                            </div>
+
+                        </div>
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Frequência
+                            </div>
+
+                            <div class="dado-valor">
+                                ${frequencia}%
+                            </div>
+
+                        </div>
+
+
+                        <div class="dado">
+
+                            <div class="dado-label">
+                                Uso de IA
+                            </div>
+
+                            <div class="dado-valor">
+                                ${usoIA === 1 ? "Sim" : "Não"}
+                            </div>
+
+                        </div>
+
 
                     </div>
 
+
+                    <div class="classificacao">
+
+                        <div class="classificacao-titulo">
+
+                            📌 RESULTADO DA ANÁLISE
+
+                        </div>
+
+
+                        <div class="classificacao-texto">
+
+                            O aluno apresentou frequência de
+                            <strong>${frequencia}%</strong>
+                            e, de acordo com o modelo,
+                            os dados foram classificados como
+                            <strong>desempenho adequado</strong>.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="probabilidades">
+
+
+                        <div class="probabilidades-titulo">
+
+                            📊 Distribuição na folha da árvore
+
+                        </div>
+
+
+                        <div class="probabilidade-item">
+
+                            <div class="probabilidade-topo">
+
+                                <span class="verde">
+                                    🟢 Desempenho adequado
+                                </span>
+
+                                <span>
+                                    ${probabilidadeAdequado.toFixed(2)}%
+                                </span>
+
+                            </div>
+
+
+                            <div class="barra">
+
+                                <div
+                                    class="barra-verde"
+                                    style="width:${probabilidadeAdequado}%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="probabilidade-item">
+
+                            <div class="probabilidade-topo">
+
+                                <span class="vermelho">
+                                    🔴 Possível baixo desempenho
+                                </span>
+
+                                <span>
+                                    ${probabilidadeBaixo.toFixed(2)}%
+                                </span>
+
+                            </div>
+
+
+                            <div class="barra">
+
+                                <div
+                                    class="barra-vermelha"
+                                    style="width:${probabilidadeBaixo}%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="explicacao-probabilidade">
+
+                            💡 Essas porcentagens representam
+                            a distribuição das duas classes
+                            entre os exemplos de treinamento
+                            que chegaram à mesma folha da árvore.
+
+                            <br><br>
+
+                            Elas <strong>não representam a
+                            acurácia geral</strong> do modelo.
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="orientacao">
+
+                        💡 <strong>Interpretação:</strong>
+
+                        de acordo com o modelo, os dados
+                        informados não foram classificados
+                        como possível baixo desempenho.
+
+                    </div>
+
+
                 </div>
-
-
-                <div class="explicacao-probabilidade">
-
-                    💡 <strong>Como interpretar:</strong>
-
-                    essas porcentagens representam a
-                    distribuição das duas classes entre
-                    os exemplos de treinamento que chegaram
-                    à mesma folha da árvore.
-
-                    <br><br>
-
-                    Elas não representam a acurácia geral
-                    do modelo.
-
-                </div>
-
-            </div>
-
-
-            <div class="explicacao">
-
-                💡 <strong>Interpretação:</strong>
-
-                de acordo com o modelo, os dados
-                informados não foram classificados
-                como possível baixo desempenho.
 
             </div>
 
@@ -1376,7 +1905,7 @@ function analisarAluno() {
 
 
 /* ============================================================
-   PERMITIR ANALISAR COM ENTER
+   ENTER
    ============================================================ */
 
 document
